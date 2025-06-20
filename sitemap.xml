@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://architect.solutions/bootcamp</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://architect.solutions/privacy-policy</loc>
     <lastmod>2025-04-01</lastmod>
     <changefreq>yearly</changefreq>
