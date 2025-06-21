@@ -1,3 +1,16 @@
-# LLM Policy for Architect Solutions
+# Architect Solutions
+
+> Architect Solutions helps companies enable in-house developers through agentic coding and the Model Context Protocol (MCP). We offer consulting, training, and automation guidance for intelligent systems.
+
+## Key Pages
+- [Home](https://architect.solutions/) - Overview of our services and mission.
+- [Agentic Coding Bootcamp](https://architect.solutions/bootcamp) - Intensive training in generative AI and autonomous workflows.
+- [Technical Architecture Plan](https://architect.solutions/technical-architecture-plan) - Detailed site structure and architecture guidelines.
+- [Image Generation Prompts](https://architect.solutions/image-generation-prompts) - Example prompts for creating brand imagery using AI.
+- [Voxel Logo Generator](https://architect.solutions/voxel_logo_README) - Documentation for building the 3D voxel logo.
+- [Privacy Policy](https://architect.solutions/privacy-policy) - Information on data handling and privacy.
+- [Terms of Service](https://architect.solutions/terms-of-service) - Legal terms for using our site.
+
+## LLM Policy
 User-agent: *
 Allow: /
