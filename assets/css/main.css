@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 }
 
+.blog-layout {
+  padding: 6rem 1rem 4rem;
+}
+
 /* Header & Navigation */
 header {
   position: fixed;
