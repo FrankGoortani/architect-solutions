@@ -59,12 +59,8 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/utilities.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/logo-viewer.css" />
 
     <!-- Fonts -->
-    <!-- 3D Logo Viewer Dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap"
       rel="stylesheet"
@@ -335,14 +331,6 @@
                 intelligent workflows.
               </p>
               <div
-                class="hero-visual hidden lg:flex items-center justify-center animate-on-scroll animate-delay-3"
-              >
-                <!-- 3D Logo Viewer Container -->
-                <div id="logo-viewer-container">
-                  <!-- Canvas will be inserted here by logo-viewer.js -->
-                </div>
-              </div>
-              <div
                 class="flex flex-row sm:flex-row gap-4 mt-8 animate-on-scroll animate-delay-2"
               >
                 <a
@@ -355,6 +343,14 @@
                   >Learn Our Process</a
                 >
               </div>
+            </div>
+            <div
+              class="hero-visual hidden lg:flex items-center justify-center animate-on-scroll animate-delay-3"
+            >
+              <img
+                src="assets/images/agentic-coding.png"
+                alt="Agentic coding illustration"
+              />
             </div>
           </div>
         </div>
@@ -1260,7 +1256,6 @@
       });
     </script>
 
-    <script src="assets/js/logo-viewer.js" defer></script>
     <!-- JavaScript Files -->
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/form-handler.js" defer></script>
