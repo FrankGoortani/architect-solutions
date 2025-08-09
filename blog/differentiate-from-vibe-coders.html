@@ -89,37 +89,193 @@
     <main class="container blog-layout">
       <article class="animate-on-scroll">
         <h1>How to Differentiate Yourself from Vibe Coders</h1>
-        <p class="meta">Frank Goortani • May 13, 2025</p>
-        <h2>Introduction: The Age of AI Coding Agents</h2>
+        <h2 style="font-size: 1.25rem; color: var(--color-gray-600); font-weight: 400; margin-bottom: 1rem;">A Guide to Surviving as a Developer in the Age of AI Agent Coders</h2>
+        <p class="meta">Frank Goortani • 5 min read • May 13, 2025</p>
+        
+        <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; margin: 2rem 0; font-style: italic; color: var(--color-gray-700);">
+          <p>"Look again, Neo!" — Morpheus</p>
+          <p>"If you're not one of us, you're one of them." — The Matrix</p>
+        </blockquote>
+
         <p>
-          Generative coding agents produce code quickly but can tempt developers to ship output
-          they do not fully understand. "Vibe coders" trust gut feeling over engineering
-          discipline.
+          The age of AI coding agents is here. Code is being written — sometimes beautifully, sometimes bafflingly — by machines that don't sleep, don't burn out, and don't ask questions. But while code production is accelerating, something more subtle and dangerous is happening in parallel: developers are turning into vibe coders — people who deploy code they don't fully understand because it "feels" right.
         </p>
+
+        <p>
+          If you're reading this, you're probably not one of them. But you might be surrounded by them.
+        </p>
+
+        <p>
+          This post is your survival guide.
+        </p>
+
+        <h2>Welcome to the Real World</h2>
+        <p>
+          Much like Neo waking up in The Matrix, developers are realizing that the job has changed. We're not just writing code anymore. We're reviewing, curating, and owning code that machines produce. But here's the catch: AI doesn't understand your context. It doesn't know your edge cases. It doesn't see the big picture.
+        </p>
+
+        <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; margin: 2rem 0; font-style: italic; color: var(--color-gray-700);">
+          <p>"Welcome to the real world!" — Morpheus</p>
+        </blockquote>
+
+        <p>
+          That's your job now.
+        </p>
+
+        <p>
+          If you want to stand out in this new world, you need to do more than vibe-check AI output. You need to architect the process — and own the result.
+        </p>
+
         <h2>Vibe Coders vs. Real Engineers</h2>
-        <p>
-          Vibe coders feed vague prompts to AI and ship results without review. Real engineers
-          define tasks precisely, break work into modules and treat AI like an intern whose work
-          must be checked.
-        </p>
-        <h2>Designing a Robust Workflow</h2>
+        
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Vibe Coders:</h3>
         <ul>
-          <li>Break down tasks and define models, data flows and edge cases before prompting.</li>
-          <li>Version prompts like code and tailor context with MCPs.</li>
-          <li>Maintain a living design document to track tasks and decisions.</li>
-          <li>Automate tests but run them and layer AI reviews for dead code or missing tests.</li>
-          <li>Be the human fail-safe and review every line before merge.</li>
+          <li>Feed vague prompts to AI.</li>
+          <li>Accept whatever comes back.</li>
+          <li>Don't read every line.</li>
+          <li>Assume someone else will catch the bugs.</li>
         </ul>
-        <h2>This Isn’t Optional</h2>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Real Engineers:</h3>
+        <ul>
+          <li>Define the task precisely before prompting.</li>
+          <li>Use modular, testable steps.</li>
+          <li>Review every line of code before it hits main.</li>
+          <li>Treat AI like an intern: helpful, but not always right.</li>
+        </ul>
+
+        <h2>Your New Workflow</h2>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Break down the task.</h3>
         <p>
-          Shipping AI code you do not understand is not engineering. Those who take ownership of
-          AI output will thrive; vibe coders will not.
+          Don't just say "build a login page." Be precise. Define the models, flows, error handling, and edge cases before prompting.
         </p>
-        <h2>Conclusion: Pick a Side</h2>
+
+        <p><strong>Example from Roo Code:</strong></p>
+        <pre style="background-color: var(--color-gray-100); padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.9rem; margin: 1rem 0;"><code>You are Roo, a strategic workflow orchestrator who coordinates complex tasks by delegating them to appropriate specialized modes. You have a comprehensive understanding of each mode's capabilities and limitations, allowing you to effectively break down complex problems into discrete tasks that can be solved by different specialists.
+
+Your role is to coordinate complex workflows by delegating tasks to specialized modes. As an orchestrator, you should:
+1. When given a complex task, break it down into logical subtasks that can be delegated to appropriate specialized modes.
+2. For each subtask, use the `new_task` tool to delegate. Provide comprehensive instructions and clearly define the scope.
+3. Track and manage the progress of all subtasks. Analyze results and determine next steps.
+4. Help the user understand how subtasks fit together.
+5. Synthesize the results and provide an overview upon completion.
+6. Ask clarifying questions when necessary.
+7. Suggest workflow improvements.</code></pre>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Design the prompt.</h3>
         <p>
-          The future is augmented, not automated. Developers must own AI generated code to
-          differentiate themselves from vibe coders.
+          Reuse, refine, and version your prompts like you would your code. Custom MCPs (Model Context Protocols) help tailor AI to your project's architecture and tone.
         </p>
+
+        <p><strong>Example for GitHub MCP Review:</strong></p>
+        <pre style="background-color: var(--color-gray-100); padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.9rem; margin: 1rem 0;"><code>use github mcp to review this PR:
+https://github.com/company/pr-123
+Your agent should orchestrate the review in these steps:
+1. **Task 1: Gather and partition changed files**
+   - Fetch the full list of files modified in this PR.
+   - Subdivide into review batches if needed.
+2. **Task 2: Review each batch**
+   - Analyze diffs within each file.
+   - Emit markdown comments covering best practices, readability, error handling, completeness, and code gaps.
+3. **Task 3: Append results**
+   - Append markdown comments to `PR_review_comments.md`.
+
+Example snippet:
+### Review for batch: /services/user
+- **File:** `services/user/user_service.py`
+  **Line:** `return user.profile.name.upper()`
+  **Comment:** Missing null check—if `user` is undefined this will crash.
+- **File:** `services/user/__init__.py`
+  **Line:** `from legacy.module import *`
+  **Comment:** Wildcard imports harm readability; import only needed symbols.</code></pre>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Use Tavily MCP for Version-Specific Documentation Searches:</h3>
+        <p>
+          When you need to find documentation specific to a certain version of a library or framework, Tavily MCP can be instrumental.
+        </p>
+
+        <p><strong>Example:</strong></p>
+        <pre style="background-color: var(--color-gray-100); padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.9rem; margin: 1rem 0;"><code>use tavily mcp to search for version-specific documentation:
+Search Query: "React 17 useEffect behavior changes"
+Instructions:
+- Retrieve official React documentation or reputable sources discussing changes to `useEffect` in React version 17.
+- Summarize any alterations in behavior, usage patterns, or best practices introduced in this version.
+- Provide links to the relevant sections of the documentation.</code></pre>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">Apply Coding Pattern Rules (Cline and Cursor Rules):</h3>
+        <p>
+          Implementing standardized coding patterns ensures consistency and maintainability across your codebase.
+        </p>
+
+        <p><strong>Example:</strong></p>
+        <pre style="background-color: var(--color-gray-100); padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.9rem; margin: 1rem 0;"><code>use coding pattern rules to enforce consistency:
+Rules:
+- **Cline Rule:** Ensure all class names follow PascalCase convention.
+- **Cursor Rule:** Enforce that all function declarations are preceded by a comment describing their purpose.
+Instructions:
+- Scan the codebase for any class names not following PascalCase and flag them.
+- Identify functions lacking descriptive comments and prompt for additions.
+- Provide suggestions for corrections where violations are found.</code></pre>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Track the plan.</h3>
+        <p>
+          Use Markdown to log task definitions, prompt outputs, decisions, and TODOs. This becomes your real-time design doc.
+        </p>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Automate and test.</h3>
+        <p>
+          Always generate and run unit tests. Use AI to write them, sure — but don't skip the actual execution.
+        </p>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Layer AI reviews.</h3>
+        <p>
+          Run a second AI pass over the code to identify dead code, missing tests, or ambiguous naming. This preps it for human review.
+        </p>
+
+        <h3 style="font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">6. Be the human fail-safe.</h3>
+        <p>
+          You — yes, you — must read every line before merge. Don't ship unless you understand it.
+        </p>
+
+        <h2>This Isn't Optional</h2>
+        <p>
+          If you blindly ship AI code you don't understand, you're not developing. You're just typing "make app" into a chatbot. You're not an engineer. You're a vibe coder.
+        </p>
+
+        <p>
+          And vibe coders won't survive.
+        </p>
+
+        <h2>The Future Is Augmented, Not Automated</h2>
+        <p>
+          AI won't replace good engineers. But it will replace engineers who act like AI.
+        </p>
+
+        <p>
+          The ones who thrive will use AI not as a crutch but as a multiplier — layering tools, refining workflows, building higher-quality software faster without compromising understanding or accountability.
+        </p>
+
+        <p>
+          Just like in The Matrix, there are those who wake up and see the code. And there are those who don't.
+        </p>
+
+        <p style="text-align: center; margin: 2rem 0; font-weight: bold; font-size: 1.1rem;">
+          Pick a side.
+        </p>
+
+        <div style="background-color: var(--color-gray-50); padding: 1rem; border-radius: 4px; margin: 2rem 0; font-size: 0.9rem; color: var(--color-gray-600);">
+          <p><strong>Disclaimer:</strong></p>
+          <p>
+            The Matrix and all associated characters, quotes, and imagery are the property of Warner Bros. Entertainment Inc. and the Wachowski siblings. This blog post uses references to The Matrix solely for illustrative and metaphorical purposes. No affiliation with or endorsement by Warner Bros. or the creators of The Matrix is intended or implied. All trademarks and copyrights related to The Matrix are acknowledged and respected.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-300);">
+          <p style="font-size: 0.9rem; color: var(--color-gray-600);">
+            Tags: <span style="color: var(--color-primary);">Agentic AI</span>, <span style="color: var(--color-primary);">AI Coding</span>
+          </p>
+        </div>
       </article>
     </main>
     <footer>

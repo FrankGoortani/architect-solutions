@@ -175,11 +175,15 @@
       .menu-toggle {
         background: none;
         border: none;
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 18px;
         position: relative;
         cursor: pointer;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
       }
 
       .menu-toggle:focus-visible {
@@ -274,33 +278,8 @@
           >
         </a>
 
-        <nav class="hidden md:flex">
+        <nav class="flex">
           <ul class="flex">
-            <li><a href="#services" class="nav-link">Services</a></li>
-            <li><a href="#education" class="nav-link">Why MCPs?</a></li>
-            <li><a href="#process" class="nav-link">How It Works</a></li>
-            <li><a href="bootcamp.html" class="nav-link">Bootcamp</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="#about" class="nav-link">About Us</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-
-        <button
-          class="menu-toggle md:hidden"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="Toggle navigation menu"
-        >
-          <span class="sr-only">Menu</span>
-          <span class="hamburger"></span>
-        </button>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <div id="mobile-menu" class="mobile-menu hidden">
-        <nav>
-          <ul>
             <li><a href="#services" class="nav-link">Services</a></li>
             <li><a href="#education" class="nav-link">Why MCPs?</a></li>
             <li><a href="#process" class="nav-link">How It Works</a></li>
@@ -490,81 +469,75 @@
             development process and business outcomes.
           </p>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+          <div class="space-y-16 mt-12">
             <div class="education-item animate-on-scroll">
-              <div class="education-graphic">
-                <!-- Image placeholder with proper dimensions -->
-                <img
-                  src="assets/images/agentic-coding.png"
-                  alt="Visualization of agentic coding concepts"
-                  style="
-                    width: 500px;
-                    height: 300px;
-                    object-fit: cover;
-                    border: 2px solid #cbd5e1;
-                  "
-                />
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="education-content">
+                  <h3 class="education-title">Agentic Coding</h3>
+                  <p class="education-text">
+                    Agentic coding empowers software agents to perform tasks
+                    autonomously, making decisions and executing actions without
+                    constant human intervention. This approach creates intelligent
+                    systems that can understand context, learn from interactions,
+                    and optimize their performance over time.
+                  </p>
+                  <ul class="list-disc pl-5 mt-4 text-gray-700">
+                    <li class="mb-2">
+                      Reduces manual coding requirements by 60-80%
+                    </li>
+                    <li class="mb-2">
+                      Enables self-adapting systems that improve with use
+                    </li>
+                    <li class="mb-2">
+                      Creates solutions that can respond to new situations
+                    </li>
+                    <li>
+                      Frees developers to focus on architecture and innovation
+                    </li>
+                  </ul>
+                </div>
+                <div class="education-graphic image-frame image-frame-large">
+                  <img
+                    src="assets/images/agentic-coding.png"
+                    alt="Visualization of agentic coding concepts"
+                  />
+                </div>
               </div>
-              <h3 class="education-title">Agentic Coding</h3>
-              <p class="education-text">
-                Agentic coding empowers software agents to perform tasks
-                autonomously, making decisions and executing actions without
-                constant human intervention. This approach creates intelligent
-                systems that can understand context, learn from interactions,
-                and optimize their performance over time.
-              </p>
-              <ul class="list-disc pl-5 mt-4 text-gray-700">
-                <li class="mb-2">
-                  Reduces manual coding requirements by 60-80%
-                </li>
-                <li class="mb-2">
-                  Enables self-adapting systems that improve with use
-                </li>
-                <li class="mb-2">
-                  Creates solutions that can respond to new situations
-                </li>
-                <li>
-                  Frees developers to focus on architecture and innovation
-                </li>
-              </ul>
             </div>
 
             <div class="education-item animate-on-scroll animate-delay-2">
-              <div class="education-graphic">
-                <!-- Image placeholder with proper dimensions -->
-                <img
-                  src="assets/images/mcp-diagram.png"
-                  alt="Diagram illustrating Modular Cognitive Processes (MCPs)"
-                  style="
-                    width: 500px;
-                    height: 300px;
-                    object-fit: cover;
-                    border: 2px solid #cbd5e1;
-                  "
-                />
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="education-content">
+                  <h3 class="education-title">
+                    Modular Cognitive Processes (MCPs)
+                  </h3>
+                  <p class="education-text">
+                    MCPs are the modular building blocks for intelligent systems.
+                    Each MCP handles a specific cognitive task—like reasoning,
+                    planning, or memory—that can be combined with others to build
+                    complex, adaptable AI solutions. This modular approach makes
+                    systems more maintainable and extensible.
+                  </p>
+                  <ul class="list-disc pl-5 mt-4 text-gray-700">
+                    <li class="mb-2">
+                      Highly reusable components across different projects
+                    </li>
+                    <li class="mb-2">
+                      Scalable architecture that grows with your needs
+                    </li>
+                    <li class="mb-2">
+                      Easier testing and maintenance of individual components
+                    </li>
+                    <li>Faster time-to-market for AI-powered features</li>
+                  </ul>
+                </div>
+                <div class="education-graphic image-frame image-frame-large">
+                  <img
+                    src="assets/images/mcp-diagram.png"
+                    alt="Diagram illustrating Modular Cognitive Processes (MCPs)"
+                  />
+                </div>
               </div>
-              <h3 class="education-title">
-                Modular Cognitive Processes (MCPs)
-              </h3>
-              <p class="education-text">
-                MCPs are the modular building blocks for intelligent systems.
-                Each MCP handles a specific cognitive task—like reasoning,
-                planning, or memory—that can be combined with others to build
-                complex, adaptable AI solutions. This modular approach makes
-                systems more maintainable and extensible.
-              </p>
-              <ul class="list-disc pl-5 mt-4 text-gray-700">
-                <li class="mb-2">
-                  Highly reusable components across different projects
-                </li>
-                <li class="mb-2">
-                  Scalable architecture that grows with your needs
-                </li>
-                <li class="mb-2">
-                  Easier testing and maintenance of individual components
-                </li>
-                <li>Faster time-to-market for AI-powered features</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -663,12 +636,12 @@
           <div class="team-info grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
             <div class="team-content animate-on-scroll animate-delay-1">
               <div class="flex items-center mb-4">
-                <img
-                  src="assets/images/frankgoortani.png"
-                  alt="Frank Goortani"
-                  class="w-16 h-16 rounded-full mr-4 object-cover shadow-sm"
-                  style="width: 64px; height: 64px"
-                />
+                <div class="image-frame image-frame-small mr-4">
+                  <img
+                    src="assets/images/frankgoortani.png"
+                    alt="Frank Goortani"
+                  />
+                </div>
                 <h3 class="founder-name">Frank Goortani, TOGAF, PMP</h3>
               </div>
               <p class="founder-title">

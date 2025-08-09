@@ -282,6 +282,42 @@ header.scrolled {
   color: var(--color-gray-600);
 }
 
+/* Image Frame Styles */
+.image-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.image-frame-large {
+  max-width: 500px;
+  width: 100%;
+}
+
+.image-frame-large img {
+  height: 300px;
+}
+
+.image-frame-small {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.image-frame-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Process Section */
 .process {
   padding: var(--space-16) 0;
