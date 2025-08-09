@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSE Is the King: How LLM Streaming Is Changing Architecture</title>
+    <meta name="description" content="Why server-sent events power real-time AI agent ecosystems." />
+    <meta name="author" content="Frank Goortani" />
+    <link rel="canonical" href="https://architect.solutions/blog/sse-is-the-king" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/utilities.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+      article { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
+      article h1 { font-size: 2rem; margin-bottom: 1rem; }
+      article h2 { font-size: 1.5rem; margin-top: 2rem; }
+      article p { margin-top: 1rem; line-height: 1.6; }
+      article ol, article ul { margin-left: 1.5rem; margin-top: 1rem; }
+      .meta { color: var(--color-gray-600); margin-top: 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <ul class="flex gap-4">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="index.html" class="nav-link">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <article>
+        <h1>SSE Is the King: How LLM Streaming Is Changing the Software Architecture Focus</h1>
+        <p class="meta">Frank Goortani</p>
+        <h2>The Protocol Stack for AI Agents</h2>
+        <p>
+          Modern agent stacks use three protocols: MCP connects models to tools, A2A enables
+          agent coordination and AG-UI streams interactions to users.
+        </p>
+        <h2>Why SSE Is King</h2>
+        <p>
+          Server-sent events stream tokens efficiently over standard HTTP. SSE offers native
+          browser support, simplicity and strong compatibility with LLM outputs.
+        </p>
+        <p>
+          Alternatives like WebSockets add complexity, while HTTP/2 push is deprecated. SSE's
+          text-only nature is a fair trade for real-time transparency.
+        </p>
+        <h2>Real-World Use Cases</h2>
+        <ul>
+          <li>Enterprise assistants stream live data from internal APIs.</li>
+          <li>
+            Multi-agent workflows coordinate specialized bots and show progress in real time.
+          </li>
+          <li>
+            Coding assistants stream code generation and testing directly in the IDE.
+          </li>
+        </ul>
+        <h2>Conclusion</h2>
+        <p>
+          Combining MCP, A2A and AG-UI with SSE delivers flexible, scalable and engaging AI
+          experiences.
+        </p>
+      </article>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Architect Solutions. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
