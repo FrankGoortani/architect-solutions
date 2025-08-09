@@ -4,24 +4,40 @@
 */
 
 :root {
-  /* Colors */
-  --color-primary: #3b82f6;
-  --color-secondary: #10b981;
-  --color-dark: #1f2937;
-  --color-light: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  /* Core Neutrals (80% usage) */
+  --color-ink: #1E1B16;
+  --color-charcoal: #2B2A2A;
+  --color-warm-gray: #ECE8E1;
+  --color-paper: #FAF7F2;
+
+  /* Brand Warms (15% usage) */
+  --color-block-gold: #EAC869;
+  --color-brick: #9B4A2E;
+  --color-deep-outline: #2E1B12;
+
+  /* Cool Accents (5% usage) */
+  --color-teal: #3FA7A4;
+  --color-sky: #6EC1E4;
+
+  /* Legacy color mappings for compatibility */
+  --color-primary: var(--color-block-gold);
+  --color-secondary: var(--color-teal);
+  --color-dark: var(--color-ink);
+  --color-light: var(--color-paper);
+  --color-gray-100: var(--color-paper);
+  --color-gray-200: var(--color-warm-gray);
+  --color-gray-300: var(--color-warm-gray);
+  --color-gray-400: var(--color-charcoal);
+  --color-gray-500: var(--color-charcoal);
+  --color-gray-600: var(--color-charcoal);
+  --color-gray-700: var(--color-ink);
+  --color-gray-800: var(--color-ink);
+  --color-gray-900: var(--color-deep-outline);
 
   /* Typography */
   --font-primary: 'Inter', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  --font-heading: 'Manrope', sans-serif;
+  --font-voxel: 'Press Start 2P', monospace;
 
   /* Spacing scale */
   --space-1: 0.25rem;
@@ -240,6 +256,7 @@
 /* Typography - Font Family */
 .font-primary { font-family: var(--font-primary); }
 .font-heading { font-family: var(--font-heading); }
+.font-voxel { font-family: var(--font-voxel); }
 
 /* Typography - Text Alignment */
 .text-left { text-align: left; }
@@ -278,6 +295,17 @@
 .text-white { color: white; }
 .text-black { color: black; }
 
+/* New brand text colors */
+.text-ink { color: var(--color-ink); }
+.text-charcoal { color: var(--color-charcoal); }
+.text-warm-gray { color: var(--color-warm-gray); }
+.text-paper { color: var(--color-paper); }
+.text-block-gold { color: var(--color-block-gold); }
+.text-brick { color: var(--color-brick); }
+.text-deep-outline { color: var(--color-deep-outline); }
+.text-teal { color: var(--color-teal); }
+.text-sky { color: var(--color-sky); }
+
 /* Typography - Text decoration */
 .underline { text-decoration: underline; }
 .line-through { text-decoration: line-through; }
@@ -301,6 +329,17 @@
 .bg-black { background-color: black; }
 .bg-transparent { background-color: transparent; }
 
+/* New brand background colors */
+.bg-ink { background-color: var(--color-ink); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+.bg-warm-gray { background-color: var(--color-warm-gray); }
+.bg-paper { background-color: var(--color-paper); }
+.bg-block-gold { background-color: var(--color-block-gold); }
+.bg-brick { background-color: var(--color-brick); }
+.bg-deep-outline { background-color: var(--color-deep-outline); }
+.bg-teal { background-color: var(--color-teal); }
+.bg-sky { background-color: var(--color-sky); }
+
 /* Border */
 .border { border-width: 1px; border-style: solid; }
 .border-0 { border-width: 0; }
@@ -323,6 +362,17 @@
 .border-gray-700 { border-color: var(--color-gray-700); }
 .border-gray-800 { border-color: var(--color-gray-800); }
 .border-gray-900 { border-color: var(--color-gray-900); }
+
+/* New brand border colors */
+.border-ink { border-color: var(--color-ink); }
+.border-charcoal { border-color: var(--color-charcoal); }
+.border-warm-gray { border-color: var(--color-warm-gray); }
+.border-paper { border-color: var(--color-paper); }
+.border-block-gold { border-color: var(--color-block-gold); }
+.border-brick { border-color: var(--color-brick); }
+.border-deep-outline { border-color: var(--color-deep-outline); }
+.border-teal { border-color: var(--color-teal); }
+.border-sky { border-color: var(--color-sky); }
 
 /* Border Radius */
 .rounded-none { border-radius: 0; }

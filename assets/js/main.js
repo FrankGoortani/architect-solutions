@@ -15,74 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /**
  * Navigation functionality
- * Handles mobile menu toggle and active state for navigation links
+ * Handles active state for navigation links (mobile menu functionality removed)
  */
 function initNavigation() {
-  // Mobile navigation toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileMenu = document.querySelector('#mobile-menu');
-  const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-
-  if (menuToggle && mobileMenu) {
-    // Toggle mobile menu function that can be called from both click and keyboard events
-    const toggleMobileMenu = () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      const newExpandedState = !expanded;
-
-      menuToggle.setAttribute('aria-expanded', newExpandedState);
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('active');
-
-      // If opening the menu, set focus on the first menu item
-      if (newExpandedState && mobileMenuLinks.length > 0) {
-        // Small delay to ensure the menu is visible before focusing
-        setTimeout(() => {
-          mobileMenuLinks[0].focus();
-        }, 100);
-      }
-    };
-
-    // Click event listener
-    menuToggle.addEventListener('click', toggleMobileMenu);
-
-    // Keyboard event listener for the toggle button
-    menuToggle.addEventListener('keydown', (e) => {
-      // Enter or Space key
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMobileMenu();
-      }
-    });
-
-    // Add keyboard navigation within the mobile menu
-    mobileMenu.addEventListener('keydown', (e) => {
-      // If Escape key is pressed while menu is open, close the menu and focus toggle button
-      if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
-        e.preventDefault();
-        toggleMobileMenu();
-        menuToggle.focus();
-      }
-    });
-
-    // Add keyboard support to mobile menu links
-    mobileMenuLinks.forEach((link, index) => {
-      link.addEventListener('keydown', (e) => {
-        // Handle arrow keys for navigation between menu items
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-          e.preventDefault();
-
-          const nextIndex = e.key === 'ArrowDown'
-            ? (index + 1) % mobileMenuLinks.length
-            : (index - 1 + mobileMenuLinks.length) % mobileMenuLinks.length;
-
-          mobileMenuLinks[nextIndex].focus();
-        }
-
-        // Tab without shift should loop within the menu
-        // Shift+Tab is handled naturally by the browser
-      });
-    });
-  }
 
   // Active navigation state based on scroll position
   const sections = document.querySelectorAll('section[id]');
@@ -151,15 +86,7 @@ function initSmoothScrolling() {
         behavior: 'smooth'
       });
 
-      // Close mobile menu if open
-      const mobileMenu = document.querySelector('#mobile-menu');
-      const menuToggle = document.querySelector('.menu-toggle');
-
-      if (mobileMenu?.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        mobileMenu.classList.add('hidden');
-        menuToggle?.setAttribute('aria-expanded', 'false');
-      }
+      // Mobile menu functionality removed - no action needed
     });
   });
 }

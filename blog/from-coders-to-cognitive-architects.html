@@ -7,16 +7,82 @@
     <meta name="description" content="Exploring how autonomous coding agents may reshape teams by 2030." />
     <meta name="author" content="Frank Goortani" />
     <link rel="canonical" href="https://architect.solutions/blog/from-coders-to-cognitive-architects" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/utilities.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <style>
-      article { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
-      article h1 { font-size: 2rem; margin-bottom: 1rem; }
-      article h2 { font-size: 1.5rem; margin-top: 2rem; }
-      article p { margin-top: 1rem; line-height: 1.6; }
-      article ol, article ul { margin-left: 1.5rem; margin-top: 1rem; }
-      .meta { color: var(--color-gray-600); margin-top: 0.5rem; }
+      body {
+        font-family: var(--font-primary);
+        color: var(--color-ink);
+        background-color: var(--color-paper);
+      }
+      article {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        font-family: var(--font-primary);
+        line-height: 1.65;
+      }
+      article h1 {
+        font-family: var(--font-heading);
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--color-ink);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      article h2 {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--color-ink);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+      article h3 {
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--color-charcoal);
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+      }
+      article p {
+        margin-top: 1rem;
+        line-height: 1.65;
+        color: var(--color-charcoal);
+        font-size: 1.05rem;
+      }
+      article ol, article ul {
+        margin-left: 1.5rem;
+        margin-top: 1rem;
+        color: var(--color-charcoal);
+      }
+      article li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+      article strong {
+        color: var(--color-ink);
+        font-weight: 600;
+      }
+      .meta {
+        color: var(--color-charcoal);
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
     </style>
   </head>
   <body>
@@ -60,30 +126,6 @@
           </ul>
         </nav>
 
-        <button
-          class="menu-toggle md:hidden"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="Toggle navigation menu"
-        >
-          <span class="sr-only">Menu</span>
-          <span class="hamburger"></span>
-        </button>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <div id="mobile-menu" class="mobile-menu hidden">
-        <nav>
-          <ul>
-            <li><a href="/#services" class="nav-link">Services</a></li>
-            <li><a href="/#education" class="nav-link">Why MCPs?</a></li>
-            <li><a href="/#process" class="nav-link">How It Works</a></li>
-            <li><a href="/bootcamp.html" class="nav-link">Bootcamp</a></li>
-            <li><a href="/blog.html" class="nav-link">Blog</a></li>
-            <li><a href="/#about" class="nav-link">About Us</a></li>
-            <li><a href="/#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
     <main class="container blog-layout">
@@ -208,7 +250,7 @@
             />
             <span
               class="logo-text"
-              style="font-weight: 600; color: white; font-size: 1.1rem"
+              style="font-weight: 600; color: var(--color-paper); font-size: 1.1rem"
               >Architect Solutions</span
             >
           </div>

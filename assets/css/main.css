@@ -22,15 +22,15 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--color-light);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-paper);
+  box-shadow: 0 1px 3px rgba(46, 27, 18, 0.1);
   z-index: 50;
   transition: all 0.3s ease;
 }
 
 header.scrolled {
-  background-color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: var(--color-paper);
+  box-shadow: 0 4px 6px -1px rgba(46, 27, 18, 0.15), 0 2px 4px -1px rgba(46, 27, 18, 0.06);
 }
 
 .logo img {
@@ -48,86 +48,26 @@ header.scrolled {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 0;
   width: 0;
-  height: 2px;
-  background-color: var(--color-primary);
+  height: 3px;
+  background-color: var(--color-teal);
   transition: all 0.3s ease;
-  transform: translateX(-50%);
+  border-radius: 0;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-  width: 70%;
-}
-
-.menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  display: block;
-  height: 2px;
   width: 100%;
-  background-color: var(--color-dark);
-  transition: all 0.3s ease;
 }
 
-.hamburger::before {
-  transform: translateY(-8px);
-}
-
-.hamburger::after {
-  transform: translateY(6px);
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger {
-  transform: rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger::before {
-  opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger::after {
-  transform: translateY(-2px) rotate(-90deg);
-}
-
-/* Mobile Navigation */
-.mobile-menu {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  background-color: white;
-  z-index: 40;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transform: translateY(-100%);
-  transition: transform 0.3s ease;
-}
-
-.mobile-menu.active {
-  transform: translateY(0);
-}
-
-.mobile-menu .nav-link {
-  display: block;
-  padding: var(--space-4);
-  border-bottom: 1px solid var(--color-gray-200);
-}
+/* Mobile menu styles removed - using desktop navigation only */
 
 /* Hero Section */
 .hero {
   padding-top: 6rem;
   min-height: 80vh;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-paper), var(--color-warm-gray));
   position: relative;
   overflow: hidden;
   display: flex;
@@ -143,7 +83,7 @@ header.scrolled {
   bottom: 0;
   background-image: url('../images/hero/pattern.svg');
   background-repeat: repeat;
-  opacity: 0.05;
+  opacity: 0.1;
 }
 
 .hero-content {
@@ -187,9 +127,10 @@ header.scrolled {
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--color-block-gold), var(--color-teal));
+  border-radius: 0;
   margin-top: var(--space-2);
+  border: 1px solid var(--color-deep-outline);
 }
 
 .text-center .section-heading::after {
@@ -201,7 +142,7 @@ header.scrolled {
   font-size: 1.125rem;
   max-width: 700px;
   margin-bottom: var(--space-8);
-  color: var(--color-gray-600);
+  color: var(--color-charcoal);
 }
 
 .text-center .section-subheading {
@@ -212,28 +153,87 @@ header.scrolled {
 /* Services Section */
 .services {
   padding: var(--space-16) 0;
-  background-color: var(--color-light);
+  background-color: var(--color-warm-gray);
+}
+
+/* Voxel-Inspired Card Component */
+.card {
+  height: 100%;
+  background-color: var(--color-paper);
+  border-radius: 2px;
+  padding: var(--space-6);
+  position: relative;
+  border: 2px solid var(--color-deep-outline);
+  transition: transform 0.2s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -8px;
+  bottom: -8px;
+  width: 8px;
+  background-color: var(--color-brick);
+  border-right: 2px solid var(--color-deep-outline);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 8px;
+  right: -8px;
+  height: 8px;
+  background-color: var(--color-brick);
+  border-bottom: 2px solid var(--color-deep-outline);
+}
+
+.card:hover {
+  transform: translate(-4px, -4px);
 }
 
 .service-card {
   height: 100%;
-  background-color: white;
-  border-radius: var(--radius-lg);
+  background-color: var(--color-paper);
+  border-radius: 2px;
   padding: var(--space-6);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border: 2px solid var(--color-deep-outline);
+  transition: transform 0.2s ease;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -8px;
+  bottom: -8px;
+  width: 8px;
+  background-color: var(--color-brick);
+  border-right: 2px solid var(--color-deep-outline);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 8px;
+  right: -8px;
+  height: 8px;
+  background-color: var(--color-brick);
+  border-bottom: 2px solid var(--color-deep-outline);
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translate(-4px, -4px);
 }
 
 .service-icon {
   width: 64px;
   height: 64px;
   margin-bottom: var(--space-4);
-  color: var(--color-primary);
+  color: var(--color-block-gold);
 }
 
 .service-title {
@@ -241,16 +241,17 @@ header.scrolled {
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: var(--space-2);
+  color: var(--color-ink);
 }
 
 .service-description {
-  color: var(--color-gray-600);
+  color: var(--color-charcoal);
 }
 
 /* Education Section */
 .education {
   padding: var(--space-16) 0;
-  background-color: white;
+  background-color: var(--color-paper);
 }
 
 .education-content {
@@ -276,10 +277,11 @@ header.scrolled {
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: var(--space-2);
+  color: var(--color-ink);
 }
 
 .education-text {
-  color: var(--color-gray-600);
+  color: var(--color-charcoal);
 }
 
 /* Image Frame Styles */
@@ -321,7 +323,7 @@ header.scrolled {
 /* Process Section */
 .process {
   padding: var(--space-16) 0;
-  background-color: var(--color-light);
+  background-color: var(--color-warm-gray);
 }
 
 .process-steps {
@@ -346,9 +348,10 @@ header.scrolled {
   top: 0;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--radius-full);
-  background-color: var(--color-primary);
-  color: white;
+  border-radius: 2px;
+  background-color: var(--color-block-gold);
+  color: var(--color-deep-outline);
+  border: 2px solid var(--color-deep-outline);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,9 +363,9 @@ header.scrolled {
   position: absolute;
   top: 2.5rem;
   left: 1.25rem;
-  width: 2px;
+  width: 3px;
   height: calc(100% - 2.5rem + var(--space-8));
-  background-color: var(--color-gray-300);
+  background-color: var(--color-brick);
   transform: translateX(-50%);
 }
 
@@ -375,16 +378,17 @@ header.scrolled {
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: var(--space-2);
+  color: var(--color-ink);
 }
 
 .process-description {
-  color: var(--color-gray-600);
+  color: var(--color-charcoal);
 }
 
 /* About Us / Team Section */
 .about {
   padding: var(--space-16) 0;
-  background-color: white;
+  background-color: var(--color-paper);
 }
 
 .team-info {
@@ -410,16 +414,17 @@ header.scrolled {
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: var(--space-1);
+  color: var(--color-ink);
 }
 
 .founder-title {
   font-size: 1rem;
-  color: var(--color-gray-600);
+  color: var(--color-charcoal);
   margin-bottom: var(--space-4);
 }
 
 .team-bio {
-  color: var(--color-gray-700);
+  color: var(--color-charcoal);
 }
 
 .social-links {
@@ -431,36 +436,63 @@ header.scrolled {
 .social-link {
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-gray-200);
+  border-radius: 2px;
+  background-color: var(--color-warm-gray);
+  border: 2px solid var(--color-deep-outline);
+  color: var(--color-ink);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .social-link:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-teal);
   color: white;
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px var(--color-charcoal);
 }
 
 /* Testimonials Section */
 .testimonials {
   padding: var(--space-16) 0;
-  background-color: var(--color-light);
+  background-color: var(--color-warm-gray);
 }
 
 .testimonial-card {
-  background-color: white;
-  border-radius: var(--radius-lg);
+  background-color: var(--color-paper);
+  border-radius: 2px;
   padding: var(--space-6);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 2px solid var(--color-deep-outline);
   height: 100%;
+  position: relative;
+}
+
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -8px;
+  bottom: -8px;
+  width: 8px;
+  background-color: var(--color-brick);
+  border-right: 2px solid var(--color-deep-outline);
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 8px;
+  right: -8px;
+  height: 8px;
+  background-color: var(--color-brick);
+  border-bottom: 2px solid var(--color-deep-outline);
 }
 
 .testimonial-content {
   margin-bottom: var(--space-4);
-  color: var(--color-gray-700);
+  color: var(--color-charcoal);
   font-style: italic;
 }
 
@@ -470,7 +502,7 @@ header.scrolled {
   line-height: 0;
   vertical-align: -0.5em;
   margin-right: 0.1em;
-  color: var(--color-gray-300);
+  color: var(--color-brick);
 }
 
 .testimonial-author {
@@ -488,12 +520,12 @@ header.scrolled {
 
 .testimonial-name {
   font-weight: 600;
-  color: var(--color-gray-900);
+  color: var(--color-ink);
 }
 
 .testimonial-role {
   font-size: 0.875rem;
-  color: var(--color-gray-600);
+  color: var(--color-charcoal);
 }
 
 .client-logos {
@@ -519,8 +551,8 @@ header.scrolled {
 /* CTA Section */
 .cta {
   padding: var(--space-16) 0;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  color: white;
+  background: linear-gradient(135deg, var(--color-block-gold), var(--color-teal));
+  color: var(--color-ink);
   position: relative;
   overflow: hidden;
 }
@@ -560,10 +592,33 @@ header.scrolled {
 /* Contact Form */
 .contact-form {
   margin-top: var(--space-8);
-  background-color: white;
-  border-radius: var(--radius-lg);
+  background-color: var(--color-paper);
+  border-radius: 2px;
   padding: var(--space-6);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 2px solid var(--color-deep-outline);
+  position: relative;
+}
+
+.contact-form::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -8px;
+  bottom: -8px;
+  width: 8px;
+  background-color: var(--color-brick);
+  border-right: 2px solid var(--color-deep-outline);
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 8px;
+  right: -8px;
+  height: 8px;
+  background-color: var(--color-brick);
+  border-bottom: 2px solid var(--color-deep-outline);
 }
 
 .form-group {
@@ -574,72 +629,93 @@ header.scrolled {
   display: block;
   margin-bottom: var(--space-2);
   font-weight: 500;
-  color: var(--color-gray-700);
+  color: var(--color-ink);
 }
 
 .form-control {
   width: 100%;
   padding: var(--space-3);
-  border: 1px solid var(--color-gray-300);
-  border-radius: var(--radius-md);
+  border: 2px solid var(--color-charcoal);
+  border-radius: 2px;
+  background-color: var(--color-paper);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(63, 167, 164, 0.2);
   outline: none;
 }
 
 .form-control[aria-invalid="true"] {
-  border-color: #ef4444;
+  border-color: var(--color-brick);
 }
 
 .error-message {
-  color: #ef4444;
+  color: var(--color-brick);
   font-size: 0.875rem;
   margin-top: var(--space-1);
   min-height: 1.25rem;
 }
 
 .success-message {
-  color: var(--color-secondary);
-  background-color: rgba(16, 185, 129, 0.1);
-  border: 1px solid var(--color-secondary);
-  border-radius: var(--radius-md);
+  color: var(--color-teal);
+  background-color: rgba(63, 167, 164, 0.1);
+  border: 2px solid var(--color-teal);
+  border-radius: 2px;
   padding: var(--space-3);
   margin-top: var(--space-4);
 }
 
-/* Buttons */
+/* Voxel-Inspired Buttons */
 .btn {
   display: inline-block;
-  font-weight: 500;
+  font-weight: 600;
   padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-md);
-  transition: all 0.3s ease;
+  border-radius: 2px;
+  transition: all 0.2s ease;
   text-align: center;
   cursor: pointer;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  border: none;
+  outline: none;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--color-block-gold);
+  color: var(--color-deep-outline);
+  border: 2px solid var(--color-deep-outline);
+  box-shadow: 4px 4px 0px var(--color-brick);
 }
 
 .btn-primary:hover {
-  background-color: #2563eb;
-  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-brick);
+}
+
+.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-brick);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
+  background-color: var(--color-teal);
   color: white;
+  border: 2px solid var(--color-deep-outline);
+  box-shadow: 4px 4px 0px var(--color-charcoal);
 }
 
 .btn-secondary:hover {
-  background-color: #059669;
-  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-charcoal);
+}
+
+.btn-secondary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-charcoal);
 }
 
 .btn-outline {
@@ -672,8 +748,8 @@ header.scrolled {
 
 /* Footer */
 footer {
-  background-color: var(--color-dark);
-  color: white;
+  background-color: var(--color-ink);
+  color: var(--color-warm-gray);
   padding: var(--space-12) 0 var(--space-6);
 }
 
@@ -690,7 +766,7 @@ footer {
 }
 
 .footer-description {
-  color: var(--color-gray-400);
+  color: var(--color-warm-gray);
   margin-bottom: var(--space-4);
 }
 
@@ -698,6 +774,7 @@ footer {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: var(--space-4);
+  color: var(--color-paper);
 }
 
 .footer-links ul {
@@ -707,12 +784,12 @@ footer {
 }
 
 .footer-links a {
-  color: var(--color-gray-400);
+  color: var(--color-warm-gray);
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--color-teal);
 }
 
 .footer-contact li {
@@ -720,11 +797,11 @@ footer {
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
-  color: var(--color-gray-400);
+  color: var(--color-warm-gray);
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-gray-700);
+  border-top: 2px solid var(--color-deep-outline);
   margin-top: var(--space-8);
   padding-top: var(--space-6);
   display: flex;
@@ -734,7 +811,7 @@ footer {
 }
 
 .footer-bottom p {
-  color: var(--color-gray-500);
+  color: var(--color-warm-gray);
   font-size: 0.875rem;
 }
 
@@ -798,3 +875,102 @@ footer {
     height: calc(100% - 3rem + var(--space-8));
   }
 }
+
+/* ==========================================================================
+   VOXEL-INSPIRED COMPONENT SYSTEM
+   Brand Colors: 80% Neutrals, 15% Warms, 5% Cools
+   ========================================================================== */
+
+/* Additional Voxel Components */
+.voxel-accent {
+  font-family: var(--font-voxel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-block-gold);
+  margin-bottom: var(--space-2);
+}
+
+/* Enhanced Card with Optional Side Stripe */
+.card-striped {
+  position: relative;
+}
+
+.card-striped::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background-color: var(--color-brick);
+  border: 2px solid var(--color-deep-outline);
+  border-left: none;
+}
+
+/* Voxel List Items */
+.voxel-list {
+  list-style: none;
+  padding: 0;
+}
+
+.voxel-list li {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: var(--color-charcoal);
+}
+
+.voxel-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-block-gold);
+  border: 1px solid var(--color-deep-outline);
+}
+
+/* Professional 3D Input Elements */
+.form-control-voxel {
+  width: 100%;
+  padding: var(--space-3);
+  border: 2px solid var(--color-deep-outline);
+  border-radius: 0;
+  background-color: var(--color-paper);
+  font-family: var(--font-primary);
+  position: relative;
+  box-shadow: 2px 2px 0px var(--color-warm-gray);
+  transition: all 0.2s ease;
+}
+
+.form-control-voxel:focus {
+  border-color: var(--color-teal);
+  box-shadow: 4px 4px 0px var(--color-charcoal);
+  transform: translate(-2px, -2px);
+  outline: none;
+}
+
+/* Brand Color Usage Guidelines (Comments for developers) */
+/*
+  BRAND SYSTEM USAGE:
+  
+  Primary Usage (80% - Neutrals):
+  - Backgrounds: var(--color-paper), var(--color-warm-gray)
+  - Text: var(--color-ink), var(--color-charcoal)
+  
+  Secondary Usage (15% - Warms):
+  - Accents: var(--color-block-gold), var(--color-brick)
+  - Borders: var(--color-deep-outline)
+  
+  Minimal Usage (5% - Cools):
+  - Interactive elements: var(--color-teal)
+  - Highlights: var(--color-sky)
+  
+  Voxel Design Principles:
+  - Use 2px borders with var(--color-deep-outline)
+  - Apply 3D effects with brick-colored shadows
+  - Minimal border-radius (0-2px only)
+  - Transform interactions with translate effects
+*/
