@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
  * Handles active state for navigation links (mobile menu functionality removed)
  */
 function initNavigation() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('header nav');
+
+  menuToggle?.addEventListener('click', () => {
+    navMenu?.classList.toggle('open');
+    const isOpen = navMenu?.classList.contains('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
 
   // Active navigation state based on scroll position
   const sections = document.querySelectorAll('section[id]');
@@ -86,7 +94,10 @@ function initSmoothScrolling() {
         behavior: 'smooth'
       });
 
-      // Mobile menu functionality removed - no action needed
+      const navMenu = document.querySelector('header nav');
+      const menuToggle = document.querySelector('.menu-toggle');
+      navMenu?.classList.remove('open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
     });
   });
 }
