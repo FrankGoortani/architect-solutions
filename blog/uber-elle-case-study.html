@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Building ELLE: Award-Winning AI Decision Engine at Uber | Architect Solutions</title>
+  <meta name="description" content="How we built an award-winning LLM-powered decision engine processing 1,000+ daily privacy decisions at Uber. Production RAG system case study." />
+  <meta name="keywords" content="production RAG, LangChain, AI decision engine, Uber, privacy compliance, LLM systems, case study" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Building ELLE: Award-Winning AI Decision Engine at Uber" />
+  <meta property="og:description" content="Production RAG system processing 1,000+ daily decisions. Winner of Uber Privacy Team Award 2024." />
+  <meta property="og:url" content="https://architect.solutions/blog/uber-elle-case-study.html" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/utilities.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BR031KVWL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5BR031KVWL');
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container flex justify-between items-center py-4">
+      <a href="../index.html" class="logo" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        <img src="../assets/images/a_s_logo.png" alt="Architect Solutions Logo" style="height: 40px; width: auto" />
+        <span class="logo-text" style="font-weight: 600; color: var(--color-ink); font-size: 1.1rem;">Architect Solutions</span>
+      </a>
+      <nav>
+        <ul class="flex" style="gap: 2rem;">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../blog.html" class="nav-link">Blog</a></li>
+          <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="blog-layout">
+    <div class="container" style="max-width: 800px;">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 2rem;">
+        <ol style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--color-charcoal);">
+          <li><a href="../index.html" class="link">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="../blog.html" class="link">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">ELLE Case Study</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header style="margin-bottom: 3rem;">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+          <span class="badge badge-primary">Case Study</span>
+          <span class="badge">Production RAG</span>
+          <span class="badge">LangChain</span>
+        </div>
+
+        <h1 class="text-5xl font-heading font-extrabold text-ink mb-4">
+          Building ELLE: Award-Winning AI Decision Engine at Uber
+        </h1>
+
+        <div style="display: flex; gap: 2rem; align-items: center; color: var(--color-charcoal); font-size: 0.875rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="../assets/images/frankgoortani.png" alt="Frank Goortani" style="width: 40px; height: 40px; border-radius: 50%;" />
+            <span>Frank Goortani</span>
+          </div>
+          <span>12 weeks to production</span>
+          <span>⭐ Uber Privacy Team Award 2024</span>
+        </div>
+      </header>
+
+      <!-- Article Body -->
+      <article class="text-base leading-relaxed">
+        <!-- Executive Summary -->
+        <section class="card-featured mb-8">
+          <h2 class="text-2xl font-heading font-bold mb-4">Executive Summary</h2>
+          <p class="mb-4">
+            <strong>ELLE (Enterprise LLM Evaluation Engine)</strong> is an award-winning AI decision engine that transformed Uber's privacy compliance workflow. Built in 12 weeks, it processes 1,000+ daily decisions, reducing manual review time by 60% while maintaining expert-level accuracy.
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li class="mb-2">✅ <strong>60% reduction</strong> in manual review time</li>
+            <li class="mb-2">✅ <strong>1,000+ daily decisions</strong> processed</li>
+            <li class="mb-2">✅ <strong>100K+ Uber employees</strong> served</li>
+            <li class="mb-2">✅ <strong>Uber Privacy Team Award 2024</strong> winner</li>
+            <li>✅ <strong>Production system</strong> running 24/7 since Jan 2024</li>
+          </ul>
+        </section>
+
+        <!-- Challenge -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-heading font-bold text-ink mb-4">The Challenge</h2>
+          <p class="mb-4">
+            Uber's privacy team processed 1,000+ data flow decisions manually, requiring expert review of each request against complex privacy policies spanning hundreds of documents. This created:
+          </p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li><strong>Bottlenecks</strong>: 3-5 day turnaround times for decisions</li>
+            <li><strong>Inconsistency</strong>: Decisions varied based on reviewer availability and interpretation</li>
+            <li><strong>Scalability issues</strong>: Manual process couldn't keep pace with Uber's growth</li>
+            <li><strong>Expert dependency</strong>: Only senior privacy engineers could make complex decisions</li>
+          </ul>
+          <p class="mb-4">
+            The team needed an AI system that could:
+          </p>
+          <ul style="margin-left: 1.5rem;">
+            <li>Understand complex privacy policies (GDPR, CCPA, internal standards)</li>
+            <li>Provide reasoned decisions with explanations</li>
+            <li>Maintain human oversight (human-in-the-loop)</li>
+            <li>Scale to 1,000+ decisions daily</li>
+            <li>Integrate with existing workflow tools</li>
+          </ul>
+        </section>
+
+        <!-- Solution -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-heading font-bold text-ink mb-4">The Solution</h2>
+          <p class="mb-4">
+            We built <strong>ELLE</strong>, an LLM-powered decision engine with a human-in-the-loop workflow combining:
+          </p>
+
+          <h3 class="text-2xl font-heading font-semibold mb-3">Core Architecture</h3>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+            <li><strong>LangChain orchestration</strong> for complex multi-step reasoning</li>
+            <li><strong>RAG system</strong> for policy document retrieval (1,000+ privacy documents)</li>
+            <li><strong>React dashboard</strong> for privacy team review and override</li>
+            <li><strong>GCP infrastructure</strong> (Cloud Functions, Cloud Run, Firestore)</li>
+            <li><strong>Kafka integration</strong> for real-time data flow monitoring</li>
+          </ul>
+
+          <h3 class="text-2xl font-heading font-semibold mb-3">Key Technical Decisions</h3>
+
+          <div class="card mb-4">
+            <h4 class="font-bold mb-2">1. Why LangChain?</h4>
+            <p>
+              Complex multi-step reasoning required orchestration of LLM calls, policy retrieval, and decision trees. LangChain provided the framework for managing this complexity while maintaining transparency.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h4 class="font-bold mb-2">2. Why RAG over Fine-Tuning?</h4>
+            <p>
+              Privacy policies change frequently (weekly updates). RAG allowed us to update the knowledge base dynamically without retraining models. Also provided transparency—we could trace exactly which policy sections influenced each decision.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h4 class="font-bold mb-2">3. Why Human-in-the-Loop?</h4>
+            <p>
+              High-stakes decisions require expert validation. ELLE provides AI-generated recommendations with reasoning, but privacy engineers make final calls. This hybrid approach combines AI speed with human judgment.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h4 class="font-bold mb-2">4. Why GCP?</h4>
+            <p>
+              Existing Uber infrastructure. Easy integration with internal tools, proven security posture, and strong SLA guarantees for production systems.
+            </p>
+          </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-heading font-bold text-ink mb-4">Technical Implementation</h2>
+
+          <h3 class="text-2xl font-heading font-semibold mb-3">System Architecture</h3>
+          <div class="card bg-warm-gray mb-4" style="padding: 2rem;">
+            <pre style="margin: 0; font-family: var(--font-code); font-size: 0.875rem; line-height: 1.6;">
+User Request (via Slack/Web)
+        ↓
+[Request Ingestion Service]
+        ↓
+[ELLE Decision Engine]
+  ├── Policy Retrieval (RAG)
+  │   ├── Vector Search (OpenSearch)
+  │   ├── Semantic Matching
+  │   └── Policy Extraction
+  ├── LLM Reasoning (GPT-4)
+  │   ├── Multi-step Analysis
+  │   ├── Risk Assessment
+  │   └── Recommendation Generation
+  └── Decision Output
+        ↓
+[Human Review Dashboard]
+  ├── AI Recommendation
+  ├── Supporting Evidence
+  ├── Policy References
+  └── Approve/Override
+        ↓
+[Final Decision] → Kafka → Audit Log
+            </pre>
+          </div>
+
+          <h3 class="text-2xl font-heading font-semibold mb-3">Tech Stack</h3>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge-tech">LangChain</span>
+            <span class="badge-tech">Python</span>
+            <span class="badge-tech">FastAPI</span>
+            <span class="badge-tech">React 18</span>
+            <span class="badge-tech">TypeScript</span>
+            <span class="badge-tech">OpenAI GPT-4</span>
+            <span class="badge-tech">Anthropic Claude</span>
+            <span class="badge-tech">GCP</span>
+            <span class="badge-tech">Cloud Functions</span>
+            <span class="badge-tech">Cloud Run</span>
+            <span class="badge-tech">Firestore</span>
+            <span class="badge-tech">BigQuery</span>
+            <span class="badge-tech">Kafka</span>
+            <span class="badge-tech">OpenSearch</span>
+            <span class="badge-tech">Material-UI</span>
+          </div>
+
+          <h3 class="text-2xl font-heading font-semibold mb-3">Implementation Timeline</h3>
+          <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+            <li class="mb-2"><strong>Week 1-2:</strong> Discovery, architecture design, tech stack selection</li>
+            <li class="mb-2"><strong>Week 3-6:</strong> Core AI pipeline (document ingestion, RAG system, LLM integration)</li>
+            <li class="mb-2"><strong>Week 7-10:</strong> User interface, authentication, human review workflow</li>
+            <li class="mb-2"><strong>Week 11-12:</strong> Testing, security review, production deployment</li>
+          </ul>
+        </section>
+
+        <!-- Results -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-heading font-bold text-ink mb-4">Results & Impact</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="card">
+              <h3 class="text-4xl font-bold text-block-gold mb-2">60%</h3>
+              <p class="font-semibold">Reduction in manual review time</p>
+            </div>
+            <div class="card">
+              <h3 class="text-4xl font-bold text-block-gold mb-2">1,000+</h3>
+              <p class="font-semibold">Daily decisions processed</p>
+            </div>
+            <div class="card">
+              <h3 class="text-4xl font-bold text-block-gold mb-2">100K+</h3>
+              <p class="font-semibold">Uber employees served</p>
+            </div>
+            <div class="card">
+              <h3 class="text-4xl font-bold text-block-gold mb-2">24/7</h3>
+              <p class="font-semibold">Production uptime since Jan 2024</p>
+            </div>
+          </div>
+
+          <div class="card-featured mb-4">
+            <h3 class="text-2xl font-heading font-bold mb-3">⭐ Uber Privacy Team Award 2024</h3>
+            <p>
+              ELLE won the Uber Privacy Team Award for innovation and impact. Recognized for transforming privacy compliance workflows while maintaining the highest standards of data protection and expert oversight.
+            </p>
+          </div>
+
+          <h3 class="text-2xl font-heading font-semibold mb-3">Business Impact</h3>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Faster turnaround</strong>: 3-5 days → same-day decisions</li>
+            <li><strong>Improved consistency</strong>: Standardized decision-making based on latest policies</li>
+            <li><strong>Scalability</strong>: System handles 10x more requests than manual process</li>
+            <li><strong>Knowledge preservation</strong>: Policy expertise codified in RAG system</li>
+            <li><strong>Audit trail</strong>: Complete decision history with reasoning for compliance</li>
+          </ul>
+        </section>
+
+        <!-- Lessons Learned -->
+        <section class="mb-8">
+          <h2 class="text-3xl font-heading font-bold text-ink mb-4">Lessons Learned</h2>
+
+          <div class="card mb-4">
+            <h3 class="font-bold mb-2">1. Start Simple, Iterate Fast</h3>
+            <p>
+              Shipped v1 in 4 weeks with basic policy matching. Refined based on privacy team feedback over next 8 weeks. Rapid iteration > perfect first version.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h3 class="font-bold mb-2">2. Human-in-the-Loop is Critical for High-Stakes Decisions</h3>
+            <p>
+              Initially considered fully automated decisions. Privacy team insisted on human oversight. This proved essential—AI provides speed and consistency, humans provide judgment and accountability.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h3 class="font-bold mb-2">3. RAG > Fine-Tuning for Dynamic Knowledge</h3>
+            <p>
+              Privacy policies updated weekly. RAG allowed instant updates to knowledge base without retraining. Also provided transparency—could trace which policies influenced decisions.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h3 class="font-bold mb-2">4. Prompt Engineering Matters</h3>
+            <p>
+              Spent 30% of development time on prompt optimization. Quality of LLM responses directly correlated with prompt clarity and structure. Invested in systematic prompt testing and refinement.
+            </p>
+          </div>
+
+          <div class="card mb-4">
+            <h3 class="font-bold mb-2">5. Monitor, Monitor, Monitor</h3>
+            <p>
+              Production LLM systems require extensive monitoring. Tracked decision latency, LLM API costs, error rates, and human override frequency. Alerts for anomalies prevented issues from escalating.
+            </p>
+          </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="contractor-banner">
+          <h2 class="text-2xl font-heading font-bold mb-4">Building Production LLM Systems?</h2>
+          <p class="text-lg mb-4">
+            I specialize in shipping production RAG systems and AI agents fast. If you're building similar systems and need expert help, I'm available for contract work.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://calendly.com/frank-visionzlab/30min" class="btn btn-primary" data-track="Case Study CTA">
+              Book 30-min Discovery Call
+            </a>
+            <a href="../index.html#portfolio" class="btn btn-secondary">
+              View More Work
+            </a>
+          </div>
+        </section>
+      </article>
+
+      <!-- Author Bio -->
+      <aside class="card mt-8" style="border-left: 4px solid var(--color-teal);">
+        <div style="display: flex; gap: 1rem; align-items: start;">
+          <img src="../assets/images/frankgoortani.png" alt="Frank Goortani" style="width: 80px; height: 80px; border-radius: 50%;" />
+          <div>
+            <h3 class="font-bold text-lg mb-1">About Frank Goortani</h3>
+            <p class="text-sm text-charcoal mb-2">
+              Solution Architect | AI/ML Engineer | Fractional CTO
+            </p>
+            <p class="text-sm mb-3">
+              Frank brings 25+ years of experience building production systems from startups to Fortune 500 companies. Award-winning track record at Uber (ELLE), Fractional CTO at FasterOutcomes, and expert in LangChain, RAG, and AI agents.
+            </p>
+            <div style="display: flex; gap: 1rem; font-size: 0.875rem;">
+              <a href="https://linkedin.com/in/frankgoortani" target="_blank" rel="noopener" class="link">LinkedIn (13K+ followers)</a>
+              <a href="https://medium.com/@FrankGoortani" target="_blank" rel="noopener" class="link">Medium</a>
+              <a href="https://github.com/FrankGoortani" target="_blank" rel="noopener" class="link">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Navigation -->
+      <nav style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-warm-gray); display: flex; justify-content: space-between;">
+        <a href="../blog.html" class="btn btn-secondary">← Back to Blog</a>
+        <a href="../index.html#contact" class="btn btn-primary">Get in Touch →</a>
+      </nav>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: var(--color-warm-gray); padding: 2rem 0; margin-top: 4rem;">
+    <div class="container text-center">
+      <p style="color: var(--color-charcoal); font-size: 0.875rem;">
+        &copy; 2025 Architect Solutions. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

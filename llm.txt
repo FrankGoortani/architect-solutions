@@ -4,10 +4,19 @@
 
 ## Key Pages
 - [Home](https://architect.solutions/) - Overview of our services and mission.
+- [Blog](https://architect.solutions/blog) - Insights on AI agents, agentic coding, and lean software practices.
 - [Agentic Coding Bootcamp](https://architect.solutions/bootcamp) - Intensive training in generative AI and autonomous workflows.
+
+## Featured Case Studies
+- [Uber ELLE: Award-Winning AI Decision Engine](https://architect.solutions/blog/uber-elle-case-study) - Production LLM system processing 1,000+ daily decisions. Winner of Uber Privacy Team Award 2024.
+- [FasterOutcomes: 0→1 in 12 Weeks](https://architect.solutions/blog/fasteroutcomes-cto-case-study) - Fractional CTO case study building AI legal tech MVP from greenfield to production.
+
+## Technical Documentation
 - [Technical Architecture Plan](https://architect.solutions/technical-architecture-plan) - Detailed site structure and architecture guidelines.
 - [Image Generation Prompts](https://architect.solutions/image-generation-prompts) - Example prompts for creating brand imagery using AI.
 - [Voxel Logo Generator](https://architect.solutions/voxel_logo_README) - Documentation for building the 3D voxel logo.
+
+## Legal
 - [Privacy Policy](https://architect.solutions/privacy-policy) - Information on data handling and privacy.
 - [Terms of Service](https://architect.solutions/terms-of-service) - Legal terms for using our site.
 
