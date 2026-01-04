@@ -1,206 +1,80 @@
 /**
- * Main JavaScript for Architect Solutions
- * This file handles navigation, animations, and general site functionality
+ * Architect.solutions - Minimal JavaScript
+ * Frank Goortani - Thought Leadership Platform
  */
 
+// Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize all components
-  initNavigation();
-  initAnimations();
-  initSmoothScrolling();
-  initLazyLoading();
-  initScheduleButton();
-  initCalendly();
-});
-
-/**
- * Navigation functionality
- * Handles active state for navigation links (mobile menu functionality removed)
- */
-function initNavigation() {
   const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('header nav');
+  const nav = document.querySelector('nav');
 
-  menuToggle?.addEventListener('click', () => {
-    navMenu?.classList.toggle('open');
-    const isOpen = navMenu?.classList.contains('open');
-    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  // Active navigation state based on scroll position
-  const sections = document.querySelectorAll('section[id]');
-
-  function setActiveNavLink() {
-    const scrollPosition = window.scrollY;
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-      const navigationLink = document.querySelector(`a[href="#${sectionId}"]`);
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navigationLink?.classList.add('active');
-      } else {
-        navigationLink?.classList.remove('active');
-      }
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('mobile-open');
+      const isExpanded = nav.classList.contains('mobile-open');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
     });
   }
 
-  // Header background change on scroll
-  const header = document.querySelector('header');
-
-  function updateHeaderBackground() {
-    if (window.scrollY > 0) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-  }
-
-  // Update navigation and header on scroll
-  window.addEventListener('scroll', () => {
-    setActiveNavLink();
-    updateHeaderBackground();
-  });
-
-  // Initial check to set active states
-  setActiveNavLink();
-  updateHeaderBackground();
-}
-
-/**
- * Smooth scrolling for navigation links
- */
-function initSmoothScrolling() {
+  // Smooth Scroll for Anchor Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-
-      // Skip if it's a non-navigation link
-      if (targetId === '#' || !targetId.startsWith('#')) return;
-
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-
-      const targetElement = document.querySelector(targetId);
-      if (!targetElement) return;
-
-      const headerOffset = 80; // Account for fixed header
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-
-      const navMenu = document.querySelector('header nav');
-      const menuToggle = document.querySelector('.menu-toggle');
-      navMenu?.classList.remove('open');
-      menuToggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-/**
- * Scroll animations using Intersection Observer
- */
-function initAnimations() {
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-  if (animatedElements.length === 0) return;
-
-  const animationObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-        // Optionally, unobserve after animation is triggered
-        // animationObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    rootMargin: '0px 0px -100px 0px',
-    threshold: 0.1
-  });
-
-  animatedElements.forEach(element => {
-    animationObserver.observe(element);
-  });
-}
-
-/**
- * Lazy loading for images
- */
-function initLazyLoading() {
-  const lazyImages = document.querySelectorAll('img[data-src]');
-
-  if (lazyImages.length === 0) return;
-
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute('data-src');
-        imageObserver.unobserve(img);
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Close mobile menu if open
+        if (nav && nav.classList.contains('mobile-open')) {
+          nav.classList.remove('mobile-open');
+        }
       }
     });
   });
 
-  lazyImages.forEach(img => {
-    imageObserver.observe(img);
-  });
-}
+  // Email Form Submission
+  const emailForm = document.querySelector('.email-form');
+  if (emailForm) {
+    emailForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
 
-/**
- * Initialize Calendly widget
- */
-function initCalendly() {
-  if (typeof Calendly === 'undefined') return;
+      // Simple client-side validation
+      if (!email || !email.includes('@')) {
+        alert('Please enter a valid email address');
+        return;
+      }
 
-  const calendlyContainer = document.getElementById('calendly-container');
-  if (!calendlyContainer) return;
+      // TODO: Replace with actual email capture service (Mailchimp, ConvertKit, etc.)
+      console.log('Email submitted:', email);
 
-  Calendly.initInlineWidget({
-    url: 'https://calendly.com/architect-solutions/consultation',
-    parentElement: calendlyContainer,
-    prefill: {}
-  });
-}
+      // Show success message
+      const button = this.querySelector('button');
+      const originalText = button.textContent;
+      button.textContent = 'Thanks! You\'re on the list.';
+      button.disabled = true;
 
-/**
- * Helper function for prefilling Calendly widget with form data
- */
-function updateCalendlyPrefill() {
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
+      // Reset form
+      this.reset();
 
-  if (typeof Calendly === 'undefined' || !nameInput || !emailInput) return;
+      // Reset button after 3 seconds
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 3000);
+    });
+  }
 
-  Calendly.initInlineWidget({
-    url: 'https://calendly.com/architect-solutions/consultation',
-    parentElement: document.getElementById('calendly-container'),
-    prefill: {
-      name: nameInput.value,
-      email: emailInput.value
+  // Keyboard Navigation Enhancement
+  document.body.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      document.body.classList.add('keyboard-navigation');
     }
   });
-}
 
-/**
- * Add event listener for "Schedule Consultation" button
- */
-function initScheduleButton() {
-  const scheduleButton = document.querySelector('[data-schedule-button]');
-  if (!scheduleButton) return;
-
-  scheduleButton.addEventListener('click', () => {
-    const calendlyContainer = document.getElementById('calendly-container');
-    if (calendlyContainer) {
-      // Scroll to calendly container
-      calendlyContainer.scrollIntoView({ behavior: 'smooth' });
-      // Initialize or update Calendly with current form data
-      updateCalendlyPrefill();
-    }
+  document.body.addEventListener('mousedown', function() {
+    document.body.classList.remove('keyboard-navigation');
   });
-}
+});
