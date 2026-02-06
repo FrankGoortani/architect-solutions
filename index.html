@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
 
   <!-- SEO Meta Tags -->
   <title>Frank Goortani | CTO at FasterOutcomes | AI Leadership & Production LLM Systems</title>
@@ -22,11 +23,6 @@
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/main.css">
@@ -64,6 +60,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Header & Navigation -->
   <header>
     <div class="container header-content">
@@ -83,12 +81,14 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <button class="theme-toggle" aria-label="Switch to dark mode">&#9790;</button>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-label="Introduction">
       <div class="container">
         <h1>Building Production AI Systems That Scale</h1>
         <p class="hero-subheadline">CTO at FasterOutcomes | Author of "The AI-Powered CTO" | 25+ Years Scaling Engineering Teams</p>
@@ -100,7 +100,7 @@
     </section>
 
     <!-- Current Role Highlight -->
-    <section>
+    <section aria-label="Current role at FasterOutcomes">
       <div class="container">
         <div class="section-title">
           <h2>Scaling FasterOutcomes from 0→1→Series A</h2>
@@ -134,7 +134,7 @@
     </section>
 
     <!-- Track Record -->
-    <section>
+    <section aria-label="Track record of production AI systems">
       <div class="container">
         <div class="section-title">
           <h2>Production AI Systems at Scale</h2>
@@ -185,7 +185,7 @@
     </section>
 
     <!-- Book Section -->
-    <section id="book" class="book-section">
+    <section id="book" class="book-section" aria-label="Book: The AI-Powered CTO">
       <div class="container">
         <span class="book-badge">Coming End of 2026</span>
         <h2>The AI-Powered CTO: Scaling Startups with Production AI</h2>
@@ -195,7 +195,7 @@
           <p>Topics include: Building production LLM systems, scaling engineering teams, AI-powered productivity, technical decision-making, and the journey from startup to Series A.</p>
         </div>
 
-        <form class="email-form">
+        <form class="email-form" aria-label="Subscribe for book updates">
           <input type="email" placeholder="your.email@example.com" required aria-label="Email address">
           <button type="submit">Notify Me</button>
         </form>
@@ -203,7 +203,7 @@
     </section>
 
     <!-- Insights & Writing -->
-    <section id="writing">
+    <section id="writing" aria-label="Writing and insights on AI leadership">
       <div class="container">
         <div class="section-title">
           <h2>Insights on AI Leadership</h2>
@@ -237,14 +237,17 @@
     </section>
 
     <!-- About Frank -->
-    <section id="about">
+    <section id="about" aria-label="About Frank Goortani">
       <div class="container">
         <div class="section-title">
           <h2>About Frank Goortani</h2>
         </div>
 
         <div class="about-content">
-          <img src="assets/images/frank-headshot.png" alt="Frank Goortani" class="headshot">
+          <picture>
+            <source srcset="assets/images/frank-headshot.webp" type="image/webp">
+            <img src="assets/images/frank-headshot.png" alt="Frank Goortani" class="headshot" loading="lazy" width="200" height="200">
+          </picture>
 
           <div class="about-text">
             <p>I'm currently CTO at FasterOutcomes, an AI legal tech startup preparing for Series A. I joined as part-time CTO in March 2024, built the MVP in 12 weeks, and went full-time in June 2025 to scale the company from early revenue to Series A.</p>
@@ -269,7 +272,7 @@
     </section>
 
     <!-- Connect -->
-    <section id="contact">
+    <section id="contact" aria-label="Contact and social links">
       <div class="container">
         <div class="section-title">
           <h2>Let's Connect</h2>

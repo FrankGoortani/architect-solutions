@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
 
   <!-- SEO Meta Tags -->
   <title>Writing | Frank Goortani - Insights on AI Leadership</title>
   <meta name="description" content="Thoughts on building production AI systems, scaling engineering teams, and AI-powered leadership from Frank Goortani, CTO at FasterOutcomes.">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://architect.solutions/writing/">
+  <meta property="og:title" content="Writing | Frank Goortani - Insights on AI Leadership">
+  <meta property="og:description" content="Thoughts on building production AI systems, scaling engineering teams, and AI-powered leadership.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 
   <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header & Navigation -->
   <header>
@@ -37,12 +44,14 @@
           <li><a href="/#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <button class="theme-toggle" aria-label="Switch to dark mode">&#9790;</button>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero -->
-    <section class="hero" style="min-height: 40vh;">
+    <section class="hero hero--compact" aria-label="Page introduction">
       <div class="container">
         <h1>Insights on AI Leadership</h1>
         <p class="hero-subheadline">Thoughts on building production AI systems, scaling engineering teams, and leading with AI</p>
@@ -50,7 +59,7 @@
     </section>
 
     <!-- Blog Posts -->
-    <section>
+    <section aria-label="Blog posts">
       <div class="container">
         <div class="grid-2">
           <!-- Placeholder Posts -->
