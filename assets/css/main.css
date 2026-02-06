@@ -22,6 +22,7 @@
   --color-dark-surface: var(--color-text);
   --color-email-input-border: rgba(254, 254, 254, 0.3);
   --color-email-input-bg: rgba(254, 254, 254, 0.1);
+  --color-on-dark: #f0eded;
 
   /* Typography - System fonts */
   --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -180,7 +181,7 @@ section:nth-child(3) {
 
 section:nth-child(3) .section-title h2,
 section:nth-child(3) .section-subtitle {
-  color: var(--color-bg);
+  color: var(--color-on-dark);
 }
 
 section:nth-child(3) .card {
@@ -284,7 +285,7 @@ nav a:hover {
   font-size: var(--text-6xl);
   margin-bottom: var(--space-6);
   line-height: 1.1;
-  color: var(--color-bg);
+  color: var(--color-on-dark);
 }
 
 .hero-subheadline {
@@ -329,12 +330,12 @@ nav a:hover {
 
 .btn-secondary {
   background: transparent;
-  color: var(--color-bg);
-  border: 2px solid var(--color-bg);
+  color: var(--color-on-dark);
+  border: 2px solid var(--color-on-dark);
 }
 
 .btn-secondary:hover {
-  background: var(--color-bg);
+  background: var(--color-on-dark);
   color: var(--color-text);
 }
 
@@ -483,7 +484,7 @@ nav a:hover {
 
 section.book-section {
   background: var(--color-dark-surface);
-  color: var(--color-bg);
+  color: var(--color-on-dark);
   position: relative;
   overflow: hidden;
 }
@@ -495,7 +496,7 @@ section.book-section .container {
 
 section.book-section h2,
 section.book-section h3 {
-  color: var(--color-bg);
+  color: var(--color-on-dark);
 }
 
 section.book-section p {
@@ -527,7 +528,7 @@ section.book-section p {
   border: 2px solid var(--color-email-input-border);
   border-radius: var(--radius-md);
   background: var(--color-email-input-bg);
-  color: var(--color-bg);
+  color: var(--color-on-dark);
   font-size: var(--text-base);
 }
 
@@ -626,7 +627,7 @@ section.book-section p {
 
 footer {
   background: var(--color-dark-surface);
-  color: var(--color-bg);
+  color: var(--color-on-dark);
   padding: var(--space-12) 0 var(--space-6);
 }
 
@@ -638,7 +639,7 @@ footer {
 }
 
 .footer-section h3 {
-  color: var(--color-bg);
+  color: var(--color-on-dark);
   font-size: var(--text-lg);
   margin-bottom: var(--space-4);
 }
