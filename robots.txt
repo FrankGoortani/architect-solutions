@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://architect.solutions/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
