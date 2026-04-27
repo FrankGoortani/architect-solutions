@@ -1,0 +1,26 @@
+# Frank Goortani — Architect.Solutions
+
+> Personal CTO portfolio of Frank Goortani — CTO at FasterOutcomes, AI engineering leader, author of "The AI-Powered CTO" (2026).
+
+Frank is the Chief Technology Officer at FasterOutcomes (AI legal tech, scaling toward Series A). Previously Solution Architect at Uber where he built the award-winning ELLE AI Decision Engine, and Lead Solution Architect at Home Depot Canada. 25+ years across enterprise architecture, production LLM systems, agentic workflows, and scaling engineering teams.
+
+## Pages
+
+- [Home](https://architect.solutions/): About Frank, current work, the book, and contact.
+- [Writing](https://architect.solutions/writing/): Articles and essays on AI engineering and CTO leadership.
+
+## Book
+
+- "The AI-Powered CTO" (2026): A book on AI-native engineering leadership, drawing on Frank's experience scaling FasterOutcomes from $50K MRR toward Series A.
+
+## Companies
+
+- [FasterOutcomes](https://fasteroutcomes.com): Current company (full-time CTO).
+- [VisionzLab](https://visionzlab.com): AI consulting brand.
+
+## Other profiles
+
+- [Personal CV](https://goortani.com/): Full resume and CV with multiple targeted variants.
+- [LinkedIn](https://linkedin.com/in/frankgoortani): 13K+ followers; primary thought-leadership channel.
+- [Medium](https://medium.com/@FrankGoortani): Articles on AI engineering and CTO leadership.
+- [GitHub](https://github.com/FrankGoortani): Open source projects and code.
