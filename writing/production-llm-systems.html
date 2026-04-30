@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Production LLM Systems | Frank Goortani</title>
+  <meta name="description" content="A practical CTO view of production LLM systems: retrieval, evaluation, observability, cost, and product reliability.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://architect.solutions/writing/production-llm-systems.html">
+  <meta property="og:title" content="Production LLM Systems: What CTOs Need to Know">
+  <meta property="og:description" content="A practical CTO view of retrieval, evaluation, observability, cost, and product reliability.">
+  <meta property="og:image" content="https://architect.solutions/assets/images/frank-headshot.png">
+  <link rel="canonical" href="https://architect.solutions/writing/production-llm-systems.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <a href="/" class="logo">Frank Goortani</a>
+      <nav>
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero hero--compact">
+      <div class="container">
+        <h1>Production LLM Systems: What CTOs Need to Know</h1>
+        <p class="hero-subheadline">Moving from demos to durable AI product infrastructure.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container prose">
+        <p>A production LLM system is not a prompt wrapped in an API. It is a product system with retrieval, permissions, evaluation, monitoring, cost controls, fallback behavior, and a workflow that real users understand.</p>
+        <p>The hard part is usually not getting a good answer once. The hard part is getting acceptable answers repeatedly across messy inputs, changing data, latency limits, and business constraints.</p>
+        <p>CTOs should ask a few grounding questions early: what source of truth does the model use, how do we know the answer is good, what happens when confidence is low, and how will engineers debug failures after launch?</p>
+        <p>Teams that answer those questions explicitly build systems that improve. Teams that skip them end up with impressive demos that are difficult to support, measure, or sell.</p>
+        <p><a href="/writing/">Back to writing</a></p>
+      </div>
+    </section>
+  </main>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+</body>
+</html>
