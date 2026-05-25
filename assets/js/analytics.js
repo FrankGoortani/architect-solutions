@@ -1,16 +1,51 @@
 /**
  * Umami analytics wrapper for architect.solutions
  *
- * The Umami script itself is loaded via a <script> tag in each page's <head>.
- * This file wires custom events (email form, CTAs, outbound clicks, blog read
- * completion, etc.) on top of the base tracker.
+ * Loads Umami after initial rendering and wires custom events (email form,
+ * CTAs, outbound clicks, blog read completion, etc.) on top of the base tracker.
  */
 (function () {
-  // Small helper that no-ops if umami hasn't loaded yet.
+  var UMAMI_HOST = 'https://goortani.synology.me:3100';
+  var WEBSITE_ID = 'bf058809-0072-446b-8523-3591391d4038';
+  var trackerRequested = false;
+  var queue = [];
+
+  function flushQueue() {
+    if (!window.umami || typeof window.umami.track !== 'function' || !queue) return;
+    queue.forEach(function (args) {
+      try { window.umami.track.apply(window.umami, args); } catch (_) {}
+    });
+    queue = null;
+  }
+
+  function loadTracker() {
+    if (trackerRequested) return;
+    trackerRequested = true;
+
+    var script = document.createElement('script');
+    script.defer = true;
+    script.src = UMAMI_HOST + '/script.js';
+    script.setAttribute('data-website-id', WEBSITE_ID);
+    script.setAttribute('data-domains', 'architect.solutions');
+    script.addEventListener('load', flushQueue, { once: true });
+    document.head.appendChild(script);
+  }
+
+  function scheduleTracker() {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadTracker, { timeout: 2500 });
+    } else {
+      setTimeout(loadTracker, 1200);
+    }
+  }
+
   function track(name, data) {
     try {
       if (window.umami && typeof window.umami.track === 'function') {
         window.umami.track(name, data || {});
+      } else if (queue) {
+        queue.push([name, data || {}]);
+        scheduleTracker();
       }
     } catch (_) {}
   }
@@ -87,4 +122,10 @@
       track('calendly_' + e.data.event.replace('calendly.', ''), {});
     }
   });
+
+  if (document.readyState === 'complete') {
+    scheduleTracker();
+  } else {
+    window.addEventListener('load', scheduleTracker, { once: true });
+  }
 })();
