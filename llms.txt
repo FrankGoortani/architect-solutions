@@ -2,7 +2,7 @@
 
 > Personal CTO portfolio of Frank Goortani — CTO at FasterOutcomes, AI engineering leader, author of "The Centaur CTO" (2026).
 
-Frank is the Chief Technology Officer at FasterOutcomes (AI legal tech, scaling toward Series A). Previously Solution Architect at Uber where he built the award-winning ELLE AI Decision Engine, and Lead Solution Architect at Home Depot Canada. 25+ years across enterprise architecture, production LLM systems, agentic workflows, and scaling engineering teams.
+Frank is the Chief Technology Officer at FasterOutcomes (AI legal tech, scaling toward Series A). Previously Solution Architect at Uber where he built the award-winning ELLE AI Decision Engine, and Lead Solution Architect at Home Depot Canada. 25+ years in software and architecture, now focused on production AI systems and engineering leadership.
 
 ## Pages
 
@@ -11,11 +11,11 @@ Frank is the Chief Technology Officer at FasterOutcomes (AI legal tech, scaling 
 
 ## Book
 
-- "The Centaur CTO" (2026): A book on AI-native engineering leadership, drawing on Frank's experience scaling FasterOutcomes from $50K MRR toward Series A.
+- "The Centaur CTO: Leading with AI to Be More Human" (2026): A practical leadership guide for CTOs who want better judgment, stronger teams, and more human impact with AI.
 
 ## Companies
 
-- [FasterOutcomes](https://fasteroutcomes.com): Current company (full-time CTO).
+- [FasterOutcomes](https://fasteroutcomes.com): Current company (full-time CTO since June 2025).
 - [VisionzLab](https://visionzlab.com): AI consulting brand.
 
 ## Other profiles
