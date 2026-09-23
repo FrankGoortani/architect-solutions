@@ -926,3 +926,7 @@ section.book-section a:not(.btn) {
 .prose ul + h2 {
   margin-top: var(--space-8);
 }
+
+.prose ul + p {
+  margin-top: var(--space-4);
+}
