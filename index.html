@@ -35,24 +35,51 @@
 
   <!-- Structured Data -->
   <script type="application/ld+json">
-  {
+{
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Frank Goortani",
-    "url": "https://goortani.com/",
-    "image": "https://architect.solutions/assets/images/frank-headshot.png",
-    "jobTitle": "Chief Technology Officer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "FasterOutcomes"
-    },
-    "description": "CTO and AI engineering leader specializing in production LLM systems and scaling engineering teams.",
-    "sameAs": [
-      "https://linkedin.com/in/frankgoortani",
-      "https://medium.com/@FrankGoortani",
-      "https://github.com/FrankGoortani"
-    ],
-    "@id": "https://goortani.com/#person"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://architect.solutions/#website",
+        "url": "https://architect.solutions/",
+        "name": "Architect.Solutions",
+        "description": "CTO portfolio of Frank Goortani and home of the book The Centaur CTO.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://goortani.com/#person"
+        },
+        "about": {
+          "@id": "https://goortani.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://goortani.com/#person",
+        "name": "Frank Goortani",
+        "url": "https://goortani.com/",
+        "jobTitle": "Chief Technology Officer",
+        "worksFor": {
+          "@id": "https://www.fasteroutcomes.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.fasteroutcomes.com/#organization",
+        "name": "FasterOutcomes",
+        "url": "https://www.fasteroutcomes.com/"
+      },
+      {
+        "@type": "Book",
+        "@id": "https://architect.solutions/#book",
+        "name": "The Centaur CTO: Leading with AI to Be More Human",
+        "url": "https://architect.solutions/#book",
+        "author": {
+          "@id": "https://goortani.com/#person"
+        },
+        "inLanguage": "en",
+        "description": "A practical leadership guide for CTOs who want better judgment, stronger teams, and more human impact with AI. Forthcoming, end of 2026."
+      }
+    ]
   }
   </script>
 
@@ -195,10 +222,9 @@
           <p>The best CTOs will not be the ones who automate the most work. They will be the ones who combine AI leverage with human judgment. Topics include: using AI as a leadership operating system, coaching and growing people, making hard tradeoffs, building trust, and deciding what should not be automated.</p>
         </div>
 
-        <form class="email-form" aria-label="Subscribe for book updates">
-          <input type="email" placeholder="your.email@example.com" required aria-label="Email address">
-          <button type="submit">Notify Me</button>
-        </form>
+        <p class="book-notify">
+          <a class="btn btn-secondary" href="mailto:frank.goortani@gmail.com?subject=Notify%20me%20about%20The%20Centaur%20CTO" data-umami-event="book_notify_email">Email me for launch updates</a>
+        </p>
       </div>
     </section>
 
@@ -254,9 +280,9 @@
 
             <p>Previously, I was a Solution Architect at Uber, where I built the award-winning ELLE AI Decision Engine—a production LLM system serving Uber's global privacy operations.</p>
 
-            <p>My 25+ year career spans enterprise architecture at Canada Life and TD Bank, technical leadership at Home Depot Canada, and now startup CTO. I've consistently focused on one thing: building production AI systems that scale.</p>
+            <p>My 25+ year career spans solution and application architecture at Canada Life and TD Bank, technical leadership at Home Depot Canada, and now startup CTO. I've consistently focused on one thing: building production AI systems that scale.</p>
 
-            <h4>I specialize in:</h4>
+            <h3 class="about-subhead">I specialize in:</h3>
             <ul>
               <li>Production LLM systems (RAG, AI agents, agentic workflows)</li>
               <li>Scaling engineering teams (startup to enterprise)</li>

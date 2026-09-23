@@ -73,37 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Email Form Submission
-  var emailForm = document.querySelector('.email-form');
-  if (emailForm) {
-    emailForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      if (!this.checkValidity()) {
-        this.reportValidity();
-        return;
-      }
-
-      var email = this.querySelector('input[type="email"]').value;
-
-      // TODO: Replace with actual email capture service (Mailchimp, ConvertKit, etc.)
-      console.log('Email submitted:', email);
-
-      // Show success message
-      var button = this.querySelector('button');
-      var originalText = button.textContent;
-      button.textContent = 'Thanks! You\'re on the list.';
-      button.disabled = true;
-
-      this.reset();
-
-      setTimeout(function() {
-        button.textContent = originalText;
-        button.disabled = false;
-      }, 3000);
-    });
-  }
-
   // Keyboard Navigation Enhancement
   document.body.addEventListener('keydown', function(e) {
     if (e.key === 'Tab') {

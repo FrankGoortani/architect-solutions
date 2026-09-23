@@ -14,7 +14,7 @@
   --color-text-secondary: #636e72;
   --color-bg: #fefefe;
   --color-bg-alt: #f5f3f0;
-  --color-accent: #0c7c8a;
+  --color-accent: #0a7582;
   --color-accent-hover: #095c66;
   --color-border: #e0dcd7;
   --color-surface: #ffffff;
@@ -581,7 +581,8 @@ section.book-section p {
   margin-bottom: var(--space-4);
 }
 
-.about-text h4 {
+.about-text h4,
+.about-text h3.about-subhead {
   font-size: var(--text-lg);
   font-weight: 600;
   margin-top: var(--space-6);
@@ -890,7 +891,7 @@ footer {
   --color-text-secondary: #636e72;
   --color-bg: #fefefe;
   --color-bg-alt: #f5f3f0;
-  --color-accent: #0c7c8a;
+  --color-accent: #0a7582;
   --color-accent-hover: #095c66;
   --color-border: #e0dcd7;
   --color-surface: #ffffff;
@@ -898,4 +899,20 @@ footer {
   --color-dark-surface: var(--color-text);
   --color-email-input-border: rgba(254, 254, 254, 0.3);
   --color-email-input-bg: rgba(254, 254, 254, 0.1);
+}
+
+/* Article byline in the dark hero */
+.hero-byline {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-on-dark);
+}
+
+.hero-byline a {
+  color: var(--color-on-dark);
+  text-decoration: underline;
+}
+
+.book-notify {
+  margin-top: var(--space-6);
 }
