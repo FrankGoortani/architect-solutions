@@ -922,3 +922,7 @@ section.book-section a:not(.btn) {
   color: var(--color-on-dark);
   text-decoration: underline;
 }
+
+.prose ul + h2 {
+  margin-top: var(--space-8);
+}
