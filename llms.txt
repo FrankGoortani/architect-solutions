@@ -7,7 +7,7 @@ Frank Goortani has been full-time CTO at FasterOutcomes since June 2025, focused
 ## Pages
 
 - [Home](https://architect.solutions/): About Frank, current work, the book, and contact.
-- [The Centaur CTO](https://architect.solutions/#book): Book overview and launch updates.
+- [The Centaur CTO](https://architect.solutions/book/): Book overview, author, and launch updates.
 - [Writing](https://architect.solutions/writing/): Articles and essays on AI engineering and CTO leadership.
 
 ## Book

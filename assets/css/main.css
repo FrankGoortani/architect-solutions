@@ -494,6 +494,7 @@ section.book-section .container {
   z-index: 1;
 }
 
+section.book-section h1,
 section.book-section h2,
 section.book-section h3 {
   color: var(--color-on-dark);
@@ -915,4 +916,9 @@ footer {
 
 .book-notify {
   margin-top: var(--space-6);
+}
+
+section.book-section a:not(.btn) {
+  color: var(--color-on-dark);
+  text-decoration: underline;
 }
