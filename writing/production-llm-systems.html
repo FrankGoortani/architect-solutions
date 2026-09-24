@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>Production LLM Systems | Frank Goortani</title>
-  <meta name="description" content="A practical CTO view of production LLM systems: retrieval, evaluation, observability, cost, and product reliability.">
+  <meta name="description" content="What separates an LLM demo from a production system, the leadership decisions behind retrieval, evaluation, cost and observability, and a pre-launch checklist for CTOs.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://architect.solutions/writing/production-llm-systems.html">
   <meta property="og:title" content="Production LLM Systems: What CTOs Need to Know">
@@ -24,7 +24,7 @@
     "url": "https://architect.solutions/writing/production-llm-systems.html",
     "mainEntityOfPage": "https://architect.solutions/writing/production-llm-systems.html",
     "datePublished": "2026-04-30T09:00:00-04:00",
-    "dateModified": "2026-05-25T09:00:00-04:00",
+    "dateModified": "2026-09-23T09:00:00-04:00",
     "author": {
       "@type": "Person",
       "@id": "https://goortani.com/#person",
@@ -67,10 +67,66 @@
     </section>
     <section>
       <div class="container prose">
-        <p>A production LLM system is not a prompt wrapped in an API. It is a product system with retrieval, permissions, evaluation, monitoring, cost controls, fallback behavior, and a workflow that real users understand.</p>
-        <p>The hard part is usually not getting a good answer once. The hard part is getting acceptable answers repeatedly across messy inputs, changing data, latency limits, and business constraints.</p>
-        <p>CTOs should ask a few grounding questions early: what source of truth does the model use, how do we know the answer is good, what happens when confidence is low, and how will engineers debug failures after launch?</p>
-        <p>Teams that answer those questions explicitly build systems that improve. Teams that skip them end up with impressive demos that are difficult to support, measure, or sell.</p>
+        <p><strong>In short:</strong> a production LLM system is not a prompt wrapped in an API. It is a product system with retrieval, permissions, evaluation, monitoring, cost controls, fallback behaviour, and a workflow real users understand. Getting a good answer once is easy. Getting acceptable answers repeatedly, across messy inputs, changing data, latency limits and business constraints, is the actual job, and most of it is made of leadership decisions rather than model choices.</p>
+
+        <h2>Why do LLM demos work and production systems struggle?</h2>
+        <p>A demo proves the model can answer a question. Production asks different questions: how fast, how cheap, how often wrong, and how you find out when it is wrong. The gaps that appear between the two are predictable:</p>
+        <ul>
+          <li><strong>Latency:</strong> a few seconds per answer is fine in a demo and unacceptable inside a workflow people run all day.</li>
+          <li><strong>Cost:</strong> a per-request price that looks trivial at a hundred users becomes a budget line at real volume.</li>
+          <li><strong>Accuracy:</strong> a small error rate is a curiosity in a demo and a stream of wrong decisions at scale.</li>
+          <li><strong>Context:</strong> your real source material does not fit in one prompt.</li>
+          <li><strong>Observability:</strong> without traces, nobody can explain why a specific answer was wrong.</li>
+          <li><strong>Change control:</strong> without versioning, every prompt edit is a live experiment on customers.</li>
+          <li><strong>Resilience:</strong> without fallbacks, a provider outage takes the product down with it.</li>
+        </ul>
+        <p>None of these are solved by a better model. They are solved by engineering and by decisions a CTO has to make explicitly.</p>
+
+        <h2>What should a CTO ask before a team builds one?</h2>
+        <p>Four grounding questions do most of the work:</p>
+        <ul>
+          <li><strong>What is the source of truth?</strong> Which documents, records or systems does the model answer from, and who owns keeping them current?</li>
+          <li><strong>How do we know an answer is good?</strong> What labelled examples exist, and what score means "ready"?</li>
+          <li><strong>What happens when confidence is low?</strong> Which cases go to a person, and who is that person?</li>
+          <li><strong>How will engineers debug a failure after launch?</strong> What is logged, and can a single bad decision be replayed?</li>
+        </ul>
+        <p>Teams that answer these explicitly build systems that improve. Teams that skip them end up with impressive demos that are hard to support, measure or sell.</p>
+
+        <h2>RAG or fine-tuning?</h2>
+        <p>For domain knowledge, retrieval-augmented generation (RAG) is the sensible default. Your policies, contracts and internal records are not in any model's training data, and they change. RAG keeps knowledge in a store you control, lets you update it without retraining, and lets you show which source an answer came from. Fine-tuning earns its place when you need a consistent style, format or narrow behaviour that prompting and retrieval cannot deliver. Treat it as a later optimisation, not the starting point.</p>
+        <p>Two retrieval details matter more than teams expect. First, <strong>rerank</strong>: vector similarity is not relevance, and a prompt stuffed with loosely related chunks distracts the model. Retrieve broadly, then keep only the few passages that actually answer the question. Second, <strong>ground the answer</strong>: require citations to retrieved sources, and treat an answer that cannot cite as an answer that needs review.</p>
+
+        <h2>One model or several agents?</h2>
+        <p>Complex decisions often go better split into steps: a router that classifies the request, specialists that handle each kind, and a validator that checks the result before it leaves the system. Splitting the work makes each step easier to evaluate and cheaper to run, because routine steps can use smaller, faster models. The cost is more moving parts to observe. Choose it when a single prompt has become a tangle of special cases, not before.</p>
+
+        <h2>How do you keep it accurate?</h2>
+        <p>Assume the system will sometimes be confidently wrong, and design for it:</p>
+        <ul>
+          <li><strong>Confidence thresholds:</strong> have the system score its own certainty and route low-confidence cases to human review instead of acting on them.</li>
+          <li><strong>Ground-truth sets:</strong> keep a labelled set of real cases, including the awkward ones, and score every change against it.</li>
+          <li><strong>Red-teaming:</strong> deliberately try to make the system invent citations or misapply a rule before customers find those cases for you.</li>
+          <li><strong>Prompts are code:</strong> version them, test them against the ground-truth set before release, roll them out gradually, and keep an instant rollback.</li>
+        </ul>
+
+        <h2>What does "observable" mean for an LLM system?</h2>
+        <p>Log every model call with its inputs, retrieved context, output, latency and cost, tied to the request that triggered it. Watch latency percentiles, error rates, cost per hour and traffic in real time. Review a sample of decisions regularly, along with the human-review rate and user corrections. When something breaks, the question "why did it decide that?" should have a concrete answer.</p>
+
+        <h2>A pre-launch checklist</h2>
+        <ul>
+          <li>Accuracy measured on a labelled set that includes edge cases, against a target the business agreed to</li>
+          <li>Load-tested well beyond expected traffic, with p95 and p99 latency recorded</li>
+          <li>Cost per request measured and projected at realistic volumes, and judged against the value of the decision</li>
+          <li>Adversarial testing for invented citations and wrong reasoning</li>
+          <li>Gradual rollout and instant rollback for prompt and model changes</li>
+          <li>Confidence thresholds and a staffed human-review path</li>
+          <li>Tracing and structured logs live from day one</li>
+          <li>Architecture decisions written down: why RAG, why this model, why this store</li>
+        </ul>
+
+        <h2>Does this pay off?</h2>
+        <p>It can, when it is measured. At Uber I built ELLE, an AI decision engine for privacy reviews that cut manual review time by roughly 70% across millions of decisions. In systems like that, the model matters less than the discipline around it: clear sources of truth, measurable quality, a human path for uncertain cases, and the ability to explain a decision after the fact.</p>
+        <p>That is the leadership lesson. Production AI is a set of decisions about trust, accountability and cost that happen to be implemented in software. They belong to the CTO. This essay draws on the production AI chapter of <a href="/book/"><em>The Centaur CTO</em></a>.</p>
+
         <p><a href="/writing/">Back to writing</a></p>
       </div>
     </section>
