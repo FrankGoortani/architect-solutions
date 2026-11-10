@@ -5,7 +5,7 @@
  * CTAs, outbound clicks, blog read completion, etc.) on top of the base tracker.
  */
 (function () {
-  var UMAMI_HOST = 'https://goortani.synology.me:3100';
+  var UMAMI_HOST = 'https://nas.tailb423d6.ts.net';
   var WEBSITE_ID = 'bf058809-0072-446b-8523-3591391d4038';
   var trackerRequested = false;
   var queue = [];
