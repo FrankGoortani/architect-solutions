@@ -938,3 +938,39 @@ section.book-section a:not(.btn) {
 .prose ul + p {
   margin-top: var(--space-4);
 }
+
+.prose ol + h2,
+.prose dl + h2 {
+  margin-top: var(--space-8);
+}
+
+.prose ol + p {
+  margin-top: var(--space-4);
+}
+
+/* Centaur CTO glossary */
+.prose dl.glossary {
+  margin-top: var(--space-4);
+}
+
+.prose dl.glossary dt {
+  margin-top: var(--space-4);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.prose dl.glossary dd {
+  margin: var(--space-1) 0 0;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.prose dl.glossary dt:target {
+  color: var(--color-accent);
+}
+
+.prose [id] {
+  scroll-margin-top: 96px;
+}

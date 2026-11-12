@@ -96,7 +96,7 @@ Thoughts on building production AI systems, scaling engineering teams, and AI-po
 
 ### What I Learned Scaling FasterOutcomes from 0→1
 
-Building an AI legal tech platform from scratch in 12 weeks taught me lessons about product-market fit, team building, and shipping production LLM systems fast.
+Field notes from taking an AI platform for legal and healthcare workflows from MVP to production: product focus, team velocity and reliable AI.
 
 ### Production LLM Systems: What CTOs Need to Know
 
@@ -156,7 +156,7 @@ URL: https://architect.solutions/centaur-cto/
 
 The idea behind The Centaur CTO: Leading with AI to Be More Human.
 
-By Frank Goortani · September 23, 2026
+By Frank Goortani · September 23, 2026 · Updated November 12, 2026
 
 A Centaur CTO is a chief technology officer who combines AI leverage with human judgment. AI takes on speed, analysis and execution. The CTO keeps the work that should not be delegated: decisions, accountability, product taste, ethics and leading people. The goal is not to automate the most work. It is to use AI to win back attention for the parts of leadership only a person can do.
 
@@ -190,9 +190,87 @@ A 2023 field experiment by Harvard Business School and Boston Consulting Group g
 
 - The line itself: deciding what should not be automated
 
+## How should a CTO lead an engineering team that works alongside AI agents?
+
+Lead it as an operating model, not a tool stack. What makes a team a centaur team is not which assistant its engineers use. It is how the team combines AI assistance with human ownership: who owns AI-assisted work, what data can be used, what needs human review, and how improvement is measured beyond speed.
+
+Write the norms down. A one-page team charter covers most of it:
+
+- Humans own the output. AI assistance never moves accountability away from the engineer or the leader.
+
+- Sensitive data stays protected. Everyone knows which data must not go into unapproved tools.
+
+- Generated work still gets reviewed. AI-assisted code, tests, docs and analysis are tested and reviewed like any other work, and AI is never the only reviewer.
+
+- Material AI help is visible. A reviewer knows when a change includes large generated sections or AI-suggested architecture.
+
+- Claims are verified. Technical, security and product claims from AI are checked against sources.
+
+- Simple beats impressive. AI can generate elaborate solutions a team cannot operate.
+
+- Concerns are raised early. Output that looks wrong, risky or unclear is a quality signal, not an embarrassment.
+
+Measure more than velocity: review quality, defect and incident rates, time to onboard, documentation quality, developer confidence and customer impact. Usage leaderboards invite gaming, and how fast a team feels is not how fast it ships. As Google's DORA research puts it, AI amplifies the system it enters: with strong ownership, review discipline and tests it helps; where those are weak, it makes the weakness move faster.
+
+Coach both failure modes. Overtrust is accepting output because it looks fluent; the answer is stronger verification, not less AI. Underuse is avoiding AI because it feels like cheating or risky; the answer is to start with low-risk uses such as explaining unfamiliar code or drafting tests for review. And name the fear directly: AI is there to improve judgment, quality and learning, not to remove ownership or treat people as interchangeable.
+
 ## Why it matters now
 
 AI makes execution cheap. That makes judgment relatively more valuable, and it makes a CTO's attention the scarcest resource in an engineering organisation. A CTO who automates everything loses the judgment the company depends on. A CTO who ignores AI loses the leverage. The Centaur CTO does neither: AI speed, human responsibility.
+
+## Glossary
+
+The terms used on this page and in the book, in plain words.
+
+Centaur CTO
+
+A chief technology officer who combines AI leverage with human judgment: AI handles speed, analysis and execution, while the CTO keeps the decisions, accountability and people leadership that should not be automated.
+
+Advanced chess
+
+A form of chess in which each human player works alongside a computer. Garry Kasparov promoted it after losing to IBM's Deep Blue in 1997, and it gave the human-plus-machine pairing the name centaur.
+
+Centaur (working mode)
+
+Splitting work with AI: handing whole sub-tasks to the AI and keeping the rest. One of two patterns seen in a 2023 Harvard Business School and BCG study of consultants using GPT-4.
+
+Cyborg (working mode)
+
+Weaving AI into every step of a task rather than splitting the task. The second pattern in the same study. A Centaur CTO chooses between the two modes on purpose, per task.
+
+Centaur team
+
+An engineering team defined by how it combines AI assistance with human ownership, not by which AI tools it uses.
+
+Centaur team charter
+
+A one-page statement of a team's AI norms: humans own the output, sensitive data stays out of unapproved tools, AI-assisted work is tested and reviewed, and material AI help is disclosed when it affects review.
+
+Human checkpoint
+
+A deliberate point in an AI-assisted workflow where a person checks accuracy, sensitive data and ownership before the work moves on.
+
+Overtrust
+
+Accepting AI-generated code, architecture or analysis because it looks fluent. The fix is stronger verification, not less AI.
+
+Underuse
+
+Avoiding AI because it feels like cheating, risky or low quality. The fix is to start with low-risk uses: explaining unfamiliar code, drafting tests for review, summarising logs.
+
+Felt speed versus measured speed
+
+The gap between how much faster AI makes people feel and how much faster the work actually ships. Measure delivery, quality and incidents, not impressions.
+
+## Related reading
+
+- Production LLM Systems: What CTOs Need to Know: the CTO decisions on retrieval, evaluation, cost and observability, with a pre-launch checklist.
+
+- What I Learned Scaling FasterOutcomes from 0 to 1: field notes from taking an AI platform from MVP to production.
+
+- The Parallel Contracts Model: A Post-Mortem: why focus became the better operating system for CTO work.
+
+- All essays
 
 ## The book
 
@@ -216,6 +294,8 @@ A practical leadership guide for CTOs who want better judgment, stronger teams, 
 
 The best CTOs will not be the ones who automate the most work. They will be the ones who combine AI leverage with human judgment. Topics include: using AI as a leadership operating system, coaching and growing people, making hard tradeoffs, building trust, and deciding what should not be automated.
 
+Start with the idea itself: What is a Centaur CTO?, with a glossary of the book's terms.
+
 Email me for launch updates
 
 ## About the author
@@ -236,11 +316,17 @@ Thoughts on building production AI systems, scaling engineering teams, and leadi
 
 ## Articles
 
+Definition
+
+### What Is a Centaur CTO?
+
+The idea behind the book: what a CTO hands to AI, what stays human, how to lead a team that works alongside AI agents, and a glossary of the terms.
+
 Field Note
 
 ### What I Learned Scaling FasterOutcomes from 0→1
 
-Building an AI legal tech platform from scratch in 12 weeks taught me lessons about product-market fit, team building, and shipping production LLM systems fast.
+Field notes from taking an AI platform for legal and healthcare workflows from MVP to production: product focus, team velocity and reliable AI.
 
 Field Note
 

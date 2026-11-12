@@ -25,8 +25,10 @@
         "name": "Centaur CTO",
         "description": "A chief technology officer who combines AI leverage with human judgment: AI handles speed, analysis and execution, while the CTO keeps the decisions, accountability and people leadership that should not be automated.",
         "url": "https://architect.solutions/centaur-cto/",
+        "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"},
         "subjectOf": {"@id": "https://architect.solutions/#book"}
       },
+      {"@type": "DefinedTermSet", "@id": "https://architect.solutions/centaur-cto/#glossary", "name": "Centaur CTO glossary", "url": "https://architect.solutions/centaur-cto/#glossary", "hasDefinedTerm": [{"@id": "https://architect.solutions/centaur-cto/#term"}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#advanced-chess", "name": "Advanced chess", "description": "A form of chess in which each human player works alongside a computer. Garry Kasparov promoted it after losing to IBM's Deep Blue in 1997, and it gave the human-plus-machine pairing the name centaur.", "url": "https://architect.solutions/centaur-cto/#advanced-chess", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#centaur-mode", "name": "Centaur (working mode)", "description": "Splitting work with AI: handing whole sub-tasks to the AI and keeping the rest. One of two patterns seen in a 2023 Harvard Business School and BCG study of consultants using GPT-4.", "url": "https://architect.solutions/centaur-cto/#centaur-mode", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#cyborg-mode", "name": "Cyborg (working mode)", "description": "Weaving AI into every step of a task rather than splitting the task. The second pattern in the same study. A Centaur CTO chooses between the two modes on purpose, per task.", "url": "https://architect.solutions/centaur-cto/#cyborg-mode", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#centaur-team", "name": "Centaur team", "description": "An engineering team defined by how it combines AI assistance with human ownership, not by which AI tools it uses.", "url": "https://architect.solutions/centaur-cto/#centaur-team", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#centaur-team-charter", "name": "Centaur team charter", "description": "A one-page statement of a team's AI norms: humans own the output, sensitive data stays out of unapproved tools, AI-assisted work is tested and reviewed, and material AI help is disclosed when it affects review.", "url": "https://architect.solutions/centaur-cto/#centaur-team-charter", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#human-checkpoint", "name": "Human checkpoint", "description": "A deliberate point in an AI-assisted workflow where a person checks accuracy, sensitive data and ownership before the work moves on.", "url": "https://architect.solutions/centaur-cto/#human-checkpoint", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#overtrust", "name": "Overtrust", "description": "Accepting AI-generated code, architecture or analysis because it looks fluent. The fix is stronger verification, not less AI.", "url": "https://architect.solutions/centaur-cto/#overtrust", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#underuse", "name": "Underuse", "description": "Avoiding AI because it feels like cheating, risky or low quality. The fix is to start with low-risk uses: explaining unfamiliar code, drafting tests for review, summarising logs.", "url": "https://architect.solutions/centaur-cto/#underuse", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}, {"@type": "DefinedTerm", "@id": "https://architect.solutions/centaur-cto/#felt-vs-measured-speed", "name": "Felt speed versus measured speed", "description": "The gap between how much faster AI makes people feel and how much faster the work actually ships. Measure delivery, quality and incidents, not impressions.", "url": "https://architect.solutions/centaur-cto/#felt-vs-measured-speed", "inDefinedTermSet": {"@id": "https://architect.solutions/centaur-cto/#glossary"}}]},
       {
         "@type": "Article",
         "@id": "https://architect.solutions/centaur-cto/#article",
@@ -38,8 +40,8 @@
         "publisher": {"@id": "https://goortani.com/#person"},
         "isPartOf": {"@id": "https://architect.solutions/#website"},
         "datePublished": "2026-09-23T09:00:00-04:00",
-        "dateModified": "2026-09-23T09:00:00-04:00",
-        "image": "https://architect.solutions/assets/images/frank-headshot.png",
+        "dateModified": "2026-11-12T09:00:00-05:00",
+        "image": "https://architect.solutions/assets/og/centaur-cto.png",
         "inLanguage": "en"
       },
       {
@@ -60,6 +62,11 @@
             "@type": "Question",
             "name": "What is the difference between a centaur and a cyborg way of working with AI?",
             "acceptedAnswer": {"@type": "Answer", "text": "In a 2023 Harvard Business School and BCG study of consultants using GPT-4, 'centaurs' divided work between themselves and the AI, handing off whole sub-tasks, while 'cyborgs' blended their work with the AI step by step. A Centaur CTO decides deliberately which mode each kind of work should run in."}
+          },
+          {
+            "@type": "Question",
+            "name": "How should a CTO lead an engineering team that works alongside AI agents?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Lead it as an operating model, not a tool stack. Write down the team's AI norms: humans own the output, sensitive data stays out of unapproved tools, AI-assisted work is tested and reviewed like any other work, and material AI help is disclosed when it affects review. Then measure more than speed: review quality, defects, incidents, onboarding time and developer confidence, and coach against both overtrust and underuse."}
           },
           {
             "@type": "Question",
@@ -92,7 +99,7 @@
       <div class="container">
         <h1>What Is a Centaur CTO?</h1>
         <p class="hero-subheadline">The idea behind <em>The Centaur CTO: Leading with AI to Be More Human</em>.</p>
-        <p class="hero-byline">By <a href="https://goortani.com/" rel="author">Frank Goortani</a> · <time datetime="2026-09-23">September 23, 2026</time></p>
+        <p class="hero-byline">By <a href="https://goortani.com/" rel="author">Frank Goortani</a> · <time datetime="2026-09-23">September 23, 2026</time> · Updated <time datetime="2026-11-12">November 12, 2026</time></p>
       </div>
     </section>
     <section>
@@ -122,8 +129,56 @@
           <li><strong>The line itself:</strong> deciding what should not be automated</li>
         </ul>
 
+        <h2 id="leading-teams">How should a CTO lead an engineering team that works alongside AI agents?</h2>
+        <p><strong>Lead it as an operating model, not a tool stack.</strong> What makes a team a centaur team is not which assistant its engineers use. It is how the team combines AI assistance with human ownership: who owns AI-assisted work, what data can be used, what needs human review, and how improvement is measured beyond speed.</p>
+        <p>Write the norms down. A one-page team charter covers most of it:</p>
+        <ol>
+          <li><strong>Humans own the output.</strong> AI assistance never moves accountability away from the engineer or the leader.</li>
+          <li><strong>Sensitive data stays protected.</strong> Everyone knows which data must not go into unapproved tools.</li>
+          <li><strong>Generated work still gets reviewed.</strong> AI-assisted code, tests, docs and analysis are tested and reviewed like any other work, and AI is never the only reviewer.</li>
+          <li><strong>Material AI help is visible.</strong> A reviewer knows when a change includes large generated sections or AI-suggested architecture.</li>
+          <li><strong>Claims are verified.</strong> Technical, security and product claims from AI are checked against sources.</li>
+          <li><strong>Simple beats impressive.</strong> AI can generate elaborate solutions a team cannot operate.</li>
+          <li><strong>Concerns are raised early.</strong> Output that looks wrong, risky or unclear is a quality signal, not an embarrassment.</li>
+        </ol>
+        <p><strong>Measure more than velocity:</strong> review quality, defect and incident rates, time to onboard, documentation quality, developer confidence and customer impact. Usage leaderboards invite gaming, and how fast a team feels is not how fast it ships. As <a href="https://dora.dev/research/2025/dora-report/">Google's DORA research</a> puts it, AI amplifies the system it enters: with strong ownership, review discipline and tests it helps; where those are weak, it makes the weakness move faster.</p>
+        <p><strong>Coach both failure modes.</strong> Overtrust is accepting output because it looks fluent; the answer is stronger verification, not less AI. Underuse is avoiding AI because it feels like cheating or risky; the answer is to start with low-risk uses such as explaining unfamiliar code or drafting tests for review. And name the fear directly: AI is there to improve judgment, quality and learning, not to remove ownership or treat people as interchangeable.</p>
+
         <h2>Why it matters now</h2>
         <p>AI makes execution cheap. That makes judgment relatively more valuable, and it makes a CTO's attention the scarcest resource in an engineering organisation. A CTO who automates everything loses the judgment the company depends on. A CTO who ignores AI loses the leverage. The Centaur CTO does neither: AI speed, human responsibility.</p>
+
+        <h2 id="glossary">Glossary</h2>
+        <p>The terms used on this page and in the book, in plain words.</p>
+        <dl class="glossary">
+          <dt>Centaur CTO</dt>
+          <dd>A chief technology officer who combines AI leverage with human judgment: AI handles speed, analysis and execution, while the CTO keeps the decisions, accountability and people leadership that should not be automated.</dd>
+          <dt id="advanced-chess">Advanced chess</dt>
+          <dd>A form of chess in which each human player works alongside a computer. Garry Kasparov promoted it after losing to IBM&#x27;s Deep Blue in 1997, and it gave the human-plus-machine pairing the name centaur.</dd>
+          <dt id="centaur-mode">Centaur (working mode)</dt>
+          <dd>Splitting work with AI: handing whole sub-tasks to the AI and keeping the rest. One of two patterns seen in a 2023 Harvard Business School and BCG study of consultants using GPT-4.</dd>
+          <dt id="cyborg-mode">Cyborg (working mode)</dt>
+          <dd>Weaving AI into every step of a task rather than splitting the task. The second pattern in the same study. A Centaur CTO chooses between the two modes on purpose, per task.</dd>
+          <dt id="centaur-team">Centaur team</dt>
+          <dd>An engineering team defined by how it combines AI assistance with human ownership, not by which AI tools it uses.</dd>
+          <dt id="centaur-team-charter">Centaur team charter</dt>
+          <dd>A one-page statement of a team&#x27;s AI norms: humans own the output, sensitive data stays out of unapproved tools, AI-assisted work is tested and reviewed, and material AI help is disclosed when it affects review.</dd>
+          <dt id="human-checkpoint">Human checkpoint</dt>
+          <dd>A deliberate point in an AI-assisted workflow where a person checks accuracy, sensitive data and ownership before the work moves on.</dd>
+          <dt id="overtrust">Overtrust</dt>
+          <dd>Accepting AI-generated code, architecture or analysis because it looks fluent. The fix is stronger verification, not less AI.</dd>
+          <dt id="underuse">Underuse</dt>
+          <dd>Avoiding AI because it feels like cheating, risky or low quality. The fix is to start with low-risk uses: explaining unfamiliar code, drafting tests for review, summarising logs.</dd>
+          <dt id="felt-vs-measured-speed">Felt speed versus measured speed</dt>
+          <dd>The gap between how much faster AI makes people feel and how much faster the work actually ships. Measure delivery, quality and incidents, not impressions.</dd>
+        </dl>
+
+        <h2>Related reading</h2>
+        <ul>
+          <li><a href="/writing/production-llm-systems.html">Production LLM Systems: What CTOs Need to Know</a>: the CTO decisions on retrieval, evaluation, cost and observability, with a pre-launch checklist.</li>
+          <li><a href="/writing/scaling-fasteroutcomes.html">What I Learned Scaling FasterOutcomes from 0 to 1</a>: field notes from taking an AI platform from MVP to production.</li>
+          <li><a href="/writing/parallel-contracts-postmortem.html">The Parallel Contracts Model: A Post-Mortem</a>: why focus became the better operating system for CTO work.</li>
+          <li><a href="/writing/">All essays</a></li>
+        </ul>
 
         <h2>The book</h2>
         <p><a href="/book/"><em>The Centaur CTO: Leading with AI to Be More Human</em></a> turns this idea into an operating system for technology leaders: how to hire and coach AI-augmented teams, make product and architecture decisions with AI in the loop, run production AI systems responsibly, and lead at each company stage. It is being written now; join the list for launch updates.</p>
