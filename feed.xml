@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frank Goortani: essays</title>
+    <link>https://architect.solutions/writing/</link>
+    <atom:link href="https://architect.solutions/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Essays on production AI systems and engineering leadership by Frank Goortani.</description>
+    <language>en</language>
+    <item>
+      <title>What Is a Centaur CTO?</title>
+      <link>https://architect.solutions/centaur-cto/</link>
+      <guid isPermaLink="true">https://architect.solutions/centaur-cto/</guid>
+      <pubDate>Wed, 23 Sep 2026 09:00:00 -0400</pubDate>
+      <description>A Centaur CTO pairs AI leverage with human judgment: AI handles speed, analysis and execution; the CTO keeps decisions, accountability and people leadership.</description>
+    </item>
+    <item>
+      <title>What I Learned Scaling FasterOutcomes from 0 to 1</title>
+      <link>https://architect.solutions/writing/scaling-fasteroutcomes.html</link>
+      <guid isPermaLink="true">https://architect.solutions/writing/scaling-fasteroutcomes.html</guid>
+      <pubDate>Thu, 30 Apr 2026 09:00:00 -0400</pubDate>
+      <description>Field notes from taking FasterOutcomes, an AI platform for legal and healthcare workflows, from MVP to production: product focus, velocity and reliable AI.</description>
+    </item>
+    <item>
+      <title>The Parallel Contracts Model: A Post-Mortem</title>
+      <link>https://architect.solutions/writing/parallel-contracts-postmortem.html</link>
+      <guid isPermaLink="true">https://architect.solutions/writing/parallel-contracts-postmortem.html</guid>
+      <pubDate>Thu, 30 Apr 2026 09:00:00 -0400</pubDate>
+      <description>A post-mortem on the parallel contracts model and why focus became the better operating system for CTO work.</description>
+    </item>
+    <item>
+      <title>Production LLM Systems: What CTOs Need to Know</title>
+      <link>https://architect.solutions/writing/production-llm-systems.html</link>
+      <guid isPermaLink="true">https://architect.solutions/writing/production-llm-systems.html</guid>
+      <pubDate>Thu, 30 Apr 2026 09:00:00 -0400</pubDate>
+      <description>What separates an LLM demo from a production system: the CTO decisions on retrieval, evaluation, cost and observability, plus a pre-launch checklist.</description>
+    </item>
+  </channel>
+</rss>

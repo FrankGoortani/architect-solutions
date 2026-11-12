@@ -1,0 +1,412 @@
+# Frank Goortani — Architect.Solutions
+
+> Personal CTO portfolio of Frank Goortani — CTO at FasterOutcomes, AI engineering leader, writing "The Centaur CTO".
+
+Frank Goortani has been full-time CTO at FasterOutcomes since June 2025, focused on production LLM systems for legal and healthcare workflows, AI governance, and engineering leadership. Previously, he was a Solution Architect at Uber (2021–2025), where he built ELLE, an AI decision engine that cut manual privacy review time by roughly 70% across millions of decisions, and a Software Consultant at The Home Depot Canada, where he led 10+ onshore and 50+ offshore developers on homedepot.ca. 25+ years in software and architecture.
+
+This file holds the full text of every page on https://architect.solutions. The index is https://architect.solutions/llms.txt.
+
+---
+
+# Frank Goortani: Essays on Production AI and The Centaur CTO
+
+URL: https://architect.solutions/
+
+# Building Production AI Systems That Scale
+
+CTO at FasterOutcomes | Writing "The Centaur CTO" | 25+ Years in Software and Architecture
+
+Read My Story About the Book
+
+## Building FasterOutcomes from 0→1
+
+I joined FasterOutcomes as part-time CTO in March 2024 with a challenge: build an AI legal tech platform from scratch in 12 weeks. We shipped the MVP on schedule.
+
+I became full-time CTO in June 2025. My work focuses on product architecture, engineering hiring, and preparing the platform for its next stage of growth.
+
+12 weeks MVP Launch
+
+June 2025 Full-time CTO
+
+Engineering Team Scaling
+
+SOC 2 Type 2 Certified 2026
+
+## Production AI Systems at Scale
+
+Building award-winning systems from startups to global platforms
+
+2021-2025
+
+### Uber ELLE
+
+Award-winning AI decision engine serving Uber's global privacy operations. Built production LLM systems for security and privacy automation.
+
+- Award-winning AI decision engine
+
+- Global enterprise privacy platform
+
+- Production LLM systems at Uber scale
+
+- 9 web applications, 50+ infrastructure projects
+
+2024
+
+### FasterOutcomes MVP
+
+Built an AI platform for legal and healthcare workflows from 0→1 in 12 weeks as part-time CTO, then became full-time CTO in June 2025.
+
+- 0→1 in 12 weeks (part-time CTO)
+
+- Architected and hands-on built most of the platform
+
+- SOC 2 Type 2 certified (2026)
+
+- Transitioned to full-time CTO (Jun 2025)
+
+2021-2025
+
+### BayRockLabs AI Practice
+
+Led GenAI consulting practice helping multiple enterprise clients ship production AI systems.
+
+- GenAI consulting lead
+
+- Multiple enterprise clients
+
+- Production AI implementations
+
+- Technical architecture and strategy
+
+Now writing
+
+## The Centaur CTO: Leading with AI to Be More Human
+
+A practical leadership guide for CTOs who want better judgment, stronger teams, and more human impact with AI. Based on real experiences scaling FasterOutcomes, building award-winning systems at Uber, and 25+ years of engineering leadership.
+
+The best CTOs will not be the ones who automate the most work. They will be the ones who combine AI leverage with human judgment. Topics include: using AI as a leadership operating system, coaching and growing people, making hard tradeoffs, building trust, and deciding what should not be automated.
+
+More about the book · What is a Centaur CTO?
+
+Email me for launch updates
+
+## Insights on AI Leadership
+
+Thoughts on building production AI systems, scaling engineering teams, and AI-powered leadership
+
+### What I Learned Scaling FasterOutcomes from 0→1
+
+Building an AI legal tech platform from scratch in 12 weeks taught me lessons about product-market fit, team building, and shipping production LLM systems fast.
+
+### Production LLM Systems: What CTOs Need to Know
+
+Moving from POCs to production LLM systems requires different thinking. Here's what I learned building ELLE at Uber and FasterOutcomes MVP.
+
+### The Parallel Contracts Model: A Post-Mortem
+
+From 2024-2025, I ran 3 parallel contracts simultaneously. Here's what worked, what didn't, and why I chose to go all-in as full-time CTO.
+
+See all articles →
+
+## About Frank Goortani
+
+I'm CTO at FasterOutcomes, an AI platform for legal and healthcare workflows. I joined as part-time CTO in March 2024, built the MVP in 12 weeks, and went full-time in June 2025. I still architect and build much of the platform hands-on, working AI-assisted.
+
+Previously, I was a Solution Architect at Uber, where I built the award-winning ELLE AI Decision Engine—a production LLM system serving Uber's global privacy operations.
+
+My 25+ year career spans solution and application architecture at Canada Life and TD Bank, consulting at The Home Depot Canada, and now startup CTO. I've consistently focused on one thing: building production AI systems that scale.
+
+### I specialize in:
+
+- Production LLM systems (RAG, AI agents, agentic workflows)
+
+- Scaling engineering teams (startup to enterprise)
+
+- AI-assisted engineering workflows with modern AI tools
+
+- Technical strategy and decision-making
+
+- 0→1 product development
+
+I hold an M.Sc. in Management and B.Sc. in Computer Software Engineering from AmirKabir University. I live in Aurora, Ontario with my family. When I'm not building AI systems, I'm writing "The Centaur CTO" and sharing insights with my 13K+ LinkedIn followers.
+
+## Let's Connect
+
+Focused full-time on FasterOutcomes, with select speaking and advisory engagements
+
+LinkedIn 13K+ followers
+
+Medium @FrankGoortani
+
+GitHub FrankGoortani
+
+Email frank.goortani@gmail.com
+
+Speaking: Available for select speaking engagements on AI leadership, production LLM systems, and scaling engineering teams.
+
+Advisory: Open to board and advisory opportunities at AI-first companies.
+
+---
+
+# What Is a Centaur CTO? | Frank Goortani
+
+URL: https://architect.solutions/centaur-cto/
+
+# What Is a Centaur CTO?
+
+The idea behind The Centaur CTO: Leading with AI to Be More Human.
+
+By Frank Goortani · September 23, 2026
+
+A Centaur CTO is a chief technology officer who combines AI leverage with human judgment. AI takes on speed, analysis and execution. The CTO keeps the work that should not be delegated: decisions, accountability, product taste, ethics and leading people. The goal is not to automate the most work. It is to use AI to win back attention for the parts of leadership only a person can do.
+
+## Where the term comes from
+
+The word comes from chess. After losing to IBM's Deep Blue in 1997, Garry Kasparov championed "advanced chess", in which each player works alongside a computer. His conclusion was about process, not raw power: a human and a machine working together through a better process could beat a stronger machine playing alone. Half human, half machine, hence the centaur.
+
+## Centaur or cyborg?
+
+A 2023 field experiment by Harvard Business School and Boston Consulting Group gave consultants GPT-4 and watched how they worked. Two patterns emerged. Centaurs split the work: they decided which sub-tasks to hand to the AI and which to keep. Cyborgs wove the AI into every step. Both can work. The leadership skill is choosing the mode on purpose, per task, and knowing how to review the output of each.
+
+## What a Centaur CTO hands to AI
+
+- First drafts: code, tests, documentation, specs and summaries
+
+- Analysis at scale: reading large codebases, logs, research and options
+
+- Pattern-finding: code smells, security issues, architectural trade-offs
+
+- Keeping up: synthesising a fast-moving field into what matters this week
+
+## What a Centaur CTO keeps
+
+- Judgment: what to build, what to cut, when to take on debt deliberately
+
+- Accountability: owning outcomes, including the ones AI contributed to
+
+- People: hiring, coaching, psychological safety, culture
+
+- Ethics and trust: what is right for customers, users and the team
+
+- The line itself: deciding what should not be automated
+
+## Why it matters now
+
+AI makes execution cheap. That makes judgment relatively more valuable, and it makes a CTO's attention the scarcest resource in an engineering organisation. A CTO who automates everything loses the judgment the company depends on. A CTO who ignores AI loses the leverage. The Centaur CTO does neither: AI speed, human responsibility.
+
+## The book
+
+The Centaur CTO: Leading with AI to Be More Human turns this idea into an operating system for technology leaders: how to hire and coach AI-augmented teams, make product and architecture decisions with AI in the loop, run production AI systems responsibly, and lead at each company stage. It is being written now; join the list for launch updates.
+
+Email me for launch updates
+
+---
+
+# The Centaur CTO: A Book on Leading with AI | Frank Goortani
+
+URL: https://architect.solutions/book/
+
+Now writing
+
+# The Centaur CTO: Leading with AI to Be More Human
+
+By Frank Goortani
+
+A practical leadership guide for CTOs who want better judgment, stronger teams, and more human impact with AI. Based on real experiences scaling FasterOutcomes, building award-winning systems at Uber, and 25+ years of engineering leadership.
+
+The best CTOs will not be the ones who automate the most work. They will be the ones who combine AI leverage with human judgment. Topics include: using AI as a leadership operating system, coaching and growing people, making hard tradeoffs, building trust, and deciding what should not be automated.
+
+Email me for launch updates
+
+## About the author
+
+Frank Goortani has been full-time CTO at FasterOutcomes since June 2025, focused on production LLM systems for legal and healthcare workflows, AI governance, and engineering leadership. Previously, he was a Solution Architect at Uber, where he built ELLE, an AI decision engine that cut manual privacy review time by roughly 70% across millions of decisions.
+
+Full profile at goortani.com · Writing
+
+---
+
+# Frank Goortani on Production AI and CTO Leadership: Essays
+
+URL: https://architect.solutions/writing/
+
+# Insights on AI Leadership
+
+Thoughts on building production AI systems, scaling engineering teams, and leading with AI
+
+## Articles
+
+Field Note
+
+### What I Learned Scaling FasterOutcomes from 0→1
+
+Building an AI legal tech platform from scratch in 12 weeks taught me lessons about product-market fit, team building, and shipping production LLM systems fast.
+
+Field Note
+
+### Production LLM Systems: What CTOs Need to Know
+
+Moving from POCs to production LLM systems requires different thinking. Here's what I learned building ELLE at Uber and FasterOutcomes MVP.
+
+Field Note
+
+### The Parallel Contracts Model: A Post-Mortem
+
+From 2024-2025, I ran 3 parallel contracts simultaneously. Here's what worked, what didn't, and why I chose to go all-in as full-time CTO.
+
+Coming Soon
+
+### Scaling Engineering Teams
+
+Notes on engineering hiring, team culture, and sustainable delivery at FasterOutcomes.
+
+Article in progress
+
+Want to be notified when new articles are published?
+
+Subscribe for Updates
+
+---
+
+# Scaling FasterOutcomes from 0 to 1 | Frank Goortani
+
+URL: https://architect.solutions/writing/scaling-fasteroutcomes.html
+
+# What I Learned Scaling FasterOutcomes from 0 to 1
+
+Field notes on product focus, engineering velocity, and production AI systems.
+
+By Frank Goortani · April 30, 2026
+
+FasterOutcomes reinforced a simple lesson: early AI products do not fail because the model is not interesting enough. They fail when the team cannot turn a painful workflow into a reliable product loop.
+
+The useful work was not chasing every AI capability. It was narrowing the product surface, shipping the smallest workflow customers could trust, and building the engineering habits needed to improve it every week.
+
+That meant treating prompts, retrieval, evaluation, data quality, and user feedback as product infrastructure. The AI system had to be observable enough for engineers to debug and predictable enough for customers to build habits around it.
+
+The CTO role in that phase is hands-on. You are shaping the architecture, hiring bar, product tradeoffs, and customer feedback loop at the same time. Speed matters, but only the kind of speed that compounds into a more reliable system.
+
+Back to writing
+
+---
+
+# Production LLM Systems: What CTOs Need to Know
+
+URL: https://architect.solutions/writing/production-llm-systems.html
+
+# Production LLM Systems: What CTOs Need to Know
+
+Moving from demos to durable AI product infrastructure.
+
+By Frank Goortani · April 30, 2026
+
+In short: a production LLM system is not a prompt wrapped in an API. It is a product system with retrieval, permissions, evaluation, monitoring, cost controls, fallback behaviour, and a workflow real users understand. Getting a good answer once is easy. Getting acceptable answers repeatedly, across messy inputs, changing data, latency limits and business constraints, is the actual job, and most of it is made of leadership decisions rather than model choices.
+
+## Why do LLM demos work and production systems struggle?
+
+A demo proves the model can answer a question. Production asks different questions: how fast, how cheap, how often wrong, and how you find out when it is wrong. The gaps that appear between the two are predictable:
+
+- Latency: a few seconds per answer is fine in a demo and unacceptable inside a workflow people run all day.
+
+- Cost: a per-request price that looks trivial at a hundred users becomes a budget line at real volume.
+
+- Accuracy: a small error rate is a curiosity in a demo and a stream of wrong decisions at scale.
+
+- Context: your real source material does not fit in one prompt.
+
+- Observability: without traces, nobody can explain why a specific answer was wrong.
+
+- Change control: without versioning, every prompt edit is a live experiment on customers.
+
+- Resilience: without fallbacks, a provider outage takes the product down with it.
+
+None of these are solved by a better model. They are solved by engineering and by decisions a CTO has to make explicitly.
+
+## What should a CTO ask before a team builds one?
+
+Four grounding questions do most of the work:
+
+- What is the source of truth? Which documents, records or systems does the model answer from, and who owns keeping them current?
+
+- How do we know an answer is good? What labelled examples exist, and what score means "ready"?
+
+- What happens when confidence is low? Which cases go to a person, and who is that person?
+
+- How will engineers debug a failure after launch? What is logged, and can a single bad decision be replayed?
+
+Teams that answer these explicitly build systems that improve. Teams that skip them end up with impressive demos that are hard to support, measure or sell.
+
+## RAG or fine-tuning?
+
+For domain knowledge, retrieval-augmented generation (RAG) is the sensible default. Your policies, contracts and internal records are not in any model's training data, and they change. RAG keeps knowledge in a store you control, lets you update it without retraining, and lets you show which source an answer came from. Fine-tuning earns its place when you need a consistent style, format or narrow behaviour that prompting and retrieval cannot deliver. Treat it as a later optimisation, not the starting point.
+
+Two retrieval details matter more than teams expect. First, rerank: vector similarity is not relevance, and a prompt stuffed with loosely related chunks distracts the model. Retrieve broadly, then keep only the few passages that actually answer the question. Second, ground the answer: require citations to retrieved sources, and treat an answer that cannot cite as an answer that needs review.
+
+## One model or several agents?
+
+Complex decisions often go better split into steps: a router that classifies the request, specialists that handle each kind, and a validator that checks the result before it leaves the system. Splitting the work makes each step easier to evaluate and cheaper to run, because routine steps can use smaller, faster models. The cost is more moving parts to observe. Choose it when a single prompt has become a tangle of special cases, not before.
+
+## How do you keep it accurate?
+
+Assume the system will sometimes be confidently wrong, and design for it:
+
+- Confidence thresholds: have the system score its own certainty and route low-confidence cases to human review instead of acting on them.
+
+- Ground-truth sets: keep a labelled set of real cases, including the awkward ones, and score every change against it.
+
+- Red-teaming: deliberately try to make the system invent citations or misapply a rule before customers find those cases for you.
+
+- Prompts are code: version them, test them against the ground-truth set before release, roll them out gradually, and keep an instant rollback.
+
+## What does "observable" mean for an LLM system?
+
+Log every model call with its inputs, retrieved context, output, latency and cost, tied to the request that triggered it. Watch latency percentiles, error rates, cost per hour and traffic in real time. Review a sample of decisions regularly, along with the human-review rate and user corrections. When something breaks, the question "why did it decide that?" should have a concrete answer.
+
+## A pre-launch checklist
+
+- Accuracy measured on a labelled set that includes edge cases, against a target the business agreed to
+
+- Load-tested well beyond expected traffic, with p95 and p99 latency recorded
+
+- Cost per request measured and projected at realistic volumes, and judged against the value of the decision
+
+- Adversarial testing for invented citations and wrong reasoning
+
+- Gradual rollout and instant rollback for prompt and model changes
+
+- Confidence thresholds and a staffed human-review path
+
+- Tracing and structured logs live from day one
+
+- Architecture decisions written down: why RAG, why this model, why this store
+
+## Does this pay off?
+
+It can, when it is measured. At Uber I built ELLE, an AI decision engine for privacy reviews that cut manual review time by roughly 70% across millions of decisions. In systems like that, the model matters less than the discipline around it: clear sources of truth, measurable quality, a human path for uncertain cases, and the ability to explain a decision after the fact.
+
+That is the leadership lesson. Production AI is a set of decisions about trust, accountability and cost that happen to be implemented in software. They belong to the CTO. This essay draws on the production AI chapter of The Centaur CTO.
+
+Back to writing
+
+---
+
+# Parallel Contracts Post-Mortem | Frank Goortani
+
+URL: https://architect.solutions/writing/parallel-contracts-postmortem.html
+
+# The Parallel Contracts Model: A Post-Mortem
+
+What the model made possible, where it became expensive, and why focus won.
+
+By Frank Goortani · April 30, 2026
+
+Parallel contracts can create useful leverage for a senior technical leader. They expose you to different product problems, architectures, teams, and business constraints in a compressed period of time.
+
+The tradeoff is context switching. Every serious technical role carries invisible load: architecture memory, people decisions, production risk, customer promises, and the need to be available when judgment matters.
+
+Over time, the question shifted from "can this be done?" to "is this the best operating model for the kind of CTO work I want to do?" For deeper company-building work, focus became the better answer.
+
+The lesson was not that optionality is bad. It was that optionality has a carrying cost, and at some point concentration produces better decisions, stronger teams, and more durable outcomes.
+
+Back to writing
+

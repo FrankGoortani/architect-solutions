@@ -38,3 +38,7 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000`. Check desktop and mobile widths, navigation, links, forms/CTAs, console errors, and obvious layout regressions.
+
+## Feeds
+
+After editing any page, run `python3 tools/build_feeds.py`. It rebuilds `feed.xml` (RSS of the essays) and `llms-full.txt` (full text of every sitemap page), and adds the RSS `<link>` to pages that lack it.

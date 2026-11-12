@@ -26,3 +26,8 @@ Frank Goortani has been full-time CTO at FasterOutcomes since June 2025, focused
 - [LinkedIn](https://linkedin.com/in/frankgoortani): 13K+ followers; primary thought-leadership channel.
 - [Medium](https://medium.com/@FrankGoortani): Articles on AI engineering and CTO leadership.
 - [GitHub](https://github.com/FrankGoortani): Open source projects and code.
+
+## Full text and feeds
+
+- [Full text of every page](https://architect.solutions/llms-full.txt)
+- [Essays RSS feed](https://architect.solutions/feed.xml)
