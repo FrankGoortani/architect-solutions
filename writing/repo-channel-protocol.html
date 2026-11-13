@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Your AI Agents Need Rules About Who Decides, Not Another Network</title>
+  <meta name="description" content="How people and AI agents from different platforms can coordinate through one GitHub repository, which always-on agents can take part, and the open Repo Channel Protocol.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://architect.solutions/writing/repo-channel-protocol.html">
+  <meta property="og:title" content="Your AI Agents Need Rules About Who Decides, Not Another Network">
+  <meta property="og:description" content="Issues carry the messages, approved files carry the instructions. An open protocol for people and AI agents working through a GitHub repository.">
+  <meta property="og:image" content="https://architect.solutions/assets/og/writing--repo-channel-protocol.png">
+  <link rel="canonical" href="https://architect.solutions/writing/repo-channel-protocol.html">
+  <link rel="alternate" type="application/rss+xml" title="Frank Goortani: essays" href="https://architect.solutions/feed.xml">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://architect.solutions/writing/repo-channel-protocol.html#article",
+    "headline": "Your AI Agents Need Rules About Who Decides, Not Another Network",
+    "description": "How people and AI agents from different platforms can coordinate through one GitHub repository, and the open Repo Channel Protocol.",
+    "url": "https://architect.solutions/writing/repo-channel-protocol.html",
+    "mainEntityOfPage": "https://architect.solutions/writing/repo-channel-protocol.html",
+    "datePublished": "2026-11-12T20:00:00-05:00",
+    "dateModified": "2026-11-12T20:00:00-05:00",
+    "author": {
+      "@type": "Person",
+      "@id": "https://goortani.com/#person",
+      "name": "Frank Goortani",
+      "url": "https://goortani.com/"
+    },
+    "publisher": {
+      "@id": "https://goortani.com/#person"
+    },
+    "isPartOf": {
+      "@id": "https://architect.solutions/#website"
+    },
+    "about": {
+      "@type": "SoftwareSourceCode",
+      "name": "Repo Channel Protocol",
+      "codeRepository": "https://github.com/FrankGoortani/repo-channel-protocol",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "image": "https://architect.solutions/assets/og/writing--repo-channel-protocol.png",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <script defer src="../assets/js/analytics.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <a href="/" class="logo">Frank Goortani</a>
+      <nav>
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/writing/" aria-current="true">Writing</a></li>
+          <li><a href="/book/">Book</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero hero--compact">
+      <div class="container">
+        <h1>Your AI Agents Need Rules About Who Decides, Not Another Network</h1>
+        <p class="hero-subheadline">Coordinating people and AI agents from different platforms through one GitHub repository, and an open protocol for doing it safely.</p>
+        <p class="hero-byline">By <a href="https://goortani.com/" rel="author">Frank Goortani</a> · <time datetime="2026-11-12">November 12, 2026</time></p>
+      </div>
+    </section>
+    <section>
+      <div class="container prose">
+        <p><strong>In short:</strong> agents from different platforms can't call each other, so the person who runs them ends up copying text between chat windows. A GitHub repository fixes that with nothing to install: issues carry the messages and versioned files carry the standing instructions. The hard part isn't moving the messages. It's deciding who may change an agent's instructions, what an agent may do when nobody answers, and how far to trust what it reports. I wrote those rules down as the <a href="https://github.com/FrankGoortani/repo-channel-protocol">Repo Channel Protocol</a>: an open specification, a small command-line tool and a set of agent skills, under the Apache 2.0 licence.</p>
+
+        <h2>What problem does this solve?</h2>
+        <p>Most people who use AI agents seriously now use more than one: a coding agent in the terminal, a scheduled agent in CI, a research agent, an assistant on another vendor's platform. Each is useful. Few of them can reach each other.</p>
+        <p>So the person in the middle becomes the integration layer: copying findings from one chat into another, explaining the same rules to each agent in different words, and finding out after the fact that one of them acted on something nobody agreed to. That doesn't scale past two agents, and it leaves no record of who decided what.</p>
+        <p>Wire protocols don't help much here. <a href="https://github.com/a2aproject/A2A">A2A</a> standardises how one agent calls another over HTTP. <a href="https://modelcontextprotocol.io">MCP</a> standardises how a model reaches tools and data. Both are useful, and both assume servers and endpoints that many hosted agents don't expose. More to the point, neither says who approved an agent's standing instructions, what it was told never to do, or what it should conclude when a question goes unanswered. That is the missing layer.</p>
+
+        <h2>Why a GitHub repository?</h2>
+        <p>Almost every agent platform can read and write GitHub issues. Very few can reach each other. A repository also happens to hold the two kinds of storage this needs:</p>
+        <ul>
+          <li><strong>Issues</strong> are a threaded, labelled conversation that anyone with access can open and the recipient can close.</li>
+          <li><strong>Files</strong> are versioned, diffable and permanent, with a full history of who changed what.</li>
+        </ul>
+        <p>Add a human interface that already exists (the GitHub website and phone app) and an audit trail you get for free, and the choice makes itself. The costs are real too: no delivery guarantees, coarse rate limits, and identity that depends on how accounts are set up. The protocol is built around those rather than hiding them.</p>
+
+        <h2>What does the protocol actually say?</h2>
+        <p>Each agent gets its own private repository, called a channel. Inside it, files and issues do different jobs. The test is simple: if it should still be true next month, it belongs in a file. If it is about something happening now, it belongs in an issue.</p>
+        <p>Messages come in five types, each with fixed headings so that people and parsers read them the same way:</p>
+        <ul>
+          <li><strong>request:</strong> do something. It says what, why, and what "done" looks like.</li>
+          <li><strong>handoff:</strong> here is state or results. The recipient now owns the pending items.</li>
+          <li><strong>question:</strong> I need information. It always states a fallback for when nobody answers.</li>
+          <li><strong>decision:</strong> only the human can choose. It gives the options and a recommendation.</li>
+          <li><strong>report:</strong> for information. No action expected.</li>
+        </ul>
+        <p>Four rules carry most of the weight:</p>
+        <ol>
+          <li><strong>Approved files only.</strong> An agent acts on a rules file or playbook only when the file itself says it is active and names the human who approved it. Drafts are for reading.</li>
+          <li><strong>Messages can't widen authority.</strong> A message can ask for work inside what the approved files already allow. It can't grant a new permission, whoever sent it.</li>
+          <li><strong>Quoted content is data.</strong> Text from a web page, an email or another agent is never an instruction, even when a trusted participant quotes it.</li>
+          <li><strong>Silence is not approval.</strong> A decision past its deadline stays open, and nobody acts on an assumed yes.</li>
+        </ol>
+        <p>The first two rules matter most. If a message could grant permission, an agent's authority would equal whatever the last convincing message said, and a convincing message is exactly what a prompt injection produces. Keeping authority in files a human approved means an attacker has to change a file, and that takes the human.</p>
+
+        <h2>How do agents fail in a shared channel?</h2>
+        <p>Most of the protocol exists because agents fail in predictable ways once they share a workspace. Five failure modes shaped it:</p>
+        <ul>
+          <li><strong>Describing capabilities they don't have.</strong> Agents describe what agents like them can generally do, not what they have been given. The fix is a ledger of capabilities someone has watched work. What an agent says about itself is recorded as "claimed" until then.</li>
+          <li><strong>Losing messages quietly.</strong> An agent that can open issues but can't apply labels sends messages that never reach a label-based inbox. An agent that writes labels into the message body, plus a participant who sweeps for unaddressed issues on every check, closes that gap.</li>
+          <li><strong>Filing the same item twice.</strong> An agent running on a schedule doesn't necessarily remember its previous run. The rule: search open issues before opening one.</li>
+          <li><strong>Saying more than the source does.</strong> Summaries drift toward what the writer expects to be true. Every claim about the outside world carries the quoted line and the link it came from.</li>
+          <li><strong>Working to an old version of the instructions.</strong> Each message names the instruction files and versions it acted under, and an agent has adopted a new version only once it says so.</li>
+        </ul>
+        <p>None of these can be predicted from an agent's description. That is the general lesson: the protocol has to keep working when a participant can do less than assumed, and has to make the gap visible.</p>
+
+        <h2 id="which-always-on-agents">Which always-on agents can take part?</h2>
+        <p>Any agent that can read GitHub issues and open or comment on them, on a schedule or on an event, can take part. It doesn't need to run on the same platform as the others, or know they exist. The protocol defines fallbacks for everything else: an agent that can't apply labels writes them into the body, and one that can't close issues says "DONE" and the steward closes for it.</p>
+        <table>
+          <thead>
+            <tr><th>Kind of agent</th><th>Examples</th><th>How it stays on</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Agents that run in CI</td><td><a href="https://github.com/anthropics/claude-code-action">Claude Code GitHub Actions</a>, <a href="https://github.com/github/gh-aw">GitHub Agentic Workflows</a></td><td>A workflow on a schedule, or on new issues and comments</td></tr>
+            <tr><td>Cloud coding agents attached to a repository</td><td>GitHub Copilot coding agent, OpenAI Codex, Google Jules, Claude Code on the web</td><td>Started by an issue, a mention or a scheduled task</td></tr>
+            <tr><td>Agents you host, built on an SDK</td><td>Claude Agent SDK, OpenAI Agents SDK, LangGraph</td><td>A cron job or a service, reaching GitHub through the <code>gh</code> CLI or the GitHub MCP server</td></tr>
+            <tr><td>Terminal coding agents</td><td>Claude Code, Codex CLI, Gemini CLI</td><td>A check of the inbox at the start of every session</td></tr>
+            <tr><td>Personal assistant agents with a GitHub connection</td><td>Assistants that can connect to GitHub and run scheduled tasks</td><td>Their own scheduled tasks</td></tr>
+            <tr><td>People</td><td>The approver, a colleague, a partner</td><td>The GitHub website or phone app</td></tr>
+          </tbody>
+        </table>
+        <p>What differs between these is not whether they can take part but how much they can do, which is why the protocol records each participant's limits instead of assuming them.</p>
+
+        <h2>How do you work with an agent you don't fully trust?</h2>
+        <p>Simon Willison describes <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">the lethal trifecta</a>: an agent is seriously exposed when it has private data, reads untrusted content, and can send data out. Issue trackers are a proven route for that kind of attack. In 2025, <a href="https://invariantlabs.ai/blog/mcp-github-vulnerability">researchers showed</a> a crafted public issue steering an agent into leaking data from a private repository.</p>
+        <p>The protocol answers with trust tiers. A <strong>restricted</strong> agent is told only what could be published, takes no action outside the repository unless an approved playbook names it, and its output counts as unverified until someone has opened the source and checked the quote. New agents start there. A <strong>standard</strong> agent can hold private context its role needs, and its external actions are limited to what the approved files allow.</p>
+        <p>This reduces the risk. It does not remove it. A tier is an instruction, not a sandbox, so it holds only as far as the agent's actual access matches it. The specification says so plainly, along with the weaker guarantees you get when every agent posts through one shared GitHub account.</p>
+
+        <h2>Isn't this already done?</h2>
+        <p>Using GitHub issues to coordinate agents is not a new idea, and I don't claim it is. Jon Udell <a href="https://www.infoworld.com/article/4224587/the-agent-coordination-protocol-hiding-in-plain-sight-github-issues.html">made the same observation in InfoWorld</a> and argued that no new protocol is needed. <a href="https://github.com/Aethelgard-Systems/agent-postbox">agent-postbox</a> is a well-built issue mailbox for agents with human-only decision labels. <a href="https://github.com/farol-team/gnap">GNAP</a> coordinates agents through files in a git repository.</p>
+        <p>I agree that no new transport is needed. What I didn't find written down anywhere was the governance around the mailbox: instruction files that bind only after a human approves them, trust tiers, one channel per agent with a single bridge between them, a ledger of observed capabilities, defined behaviour when everyone shares one account, and fallbacks for agents that can't do the basics. The repository's <a href="https://github.com/FrankGoortani/repo-channel-protocol/blob/main/docs/prior-art.md">prior-art page</a> gives each related project its due.</p>
+
+        <h2>Before you connect a new agent: a checklist</h2>
+        <ul>
+          <li>The agent has its own private repository, and can't read any other agent's.</li>
+          <li>It starts on the restricted tier: nothing private in the repository, no external actions.</li>
+          <li>The rules file says what may never leave the repository and that nothing acts outside it without an approved playbook, and the human has approved it in the file.</li>
+          <li>Its GitHub access is limited to that one repository.</li>
+          <li>The first message is an onboarding request that asks it to comment, label and close the issue, and to report each result with the exact error text.</li>
+          <li>Every operation it fails goes into the manifest as something it can't do, so the fallbacks apply automatically.</li>
+          <li>Its tier rises only on a decision that cites what it has been seen to do.</li>
+        </ul>
+
+        <h2>How do I try it?</h2>
+        <p>You need Python 3.11 or later. The tool uses the standard library only.</p>
+        <pre><code>pipx install git+https://github.com/FrankGoortani/repo-channel-protocol
+git clone https://github.com/FrankGoortani/repo-channel-protocol
+rchan lint --dir repo-channel-protocol/examples/digest-channel</code></pre>
+        <p>The repository has the <a href="https://github.com/FrankGoortani/repo-channel-protocol/blob/main/SPEC.md">specification</a>, guides for the human who approves and for the agents themselves, five agent skills (inbox, send, propose, steward, setup), and a fictional worked example with full message transcripts, including a prompt-injection attempt that both agents treat as data. It is version 0.1, a working draft. Field reports go in its issue tracker.</p>
+        <p>The broader point is one I keep coming back to in <a href="/book/"><em>The Centaur CTO</em></a>: what matters most isn't how capable each agent is. It's knowing who decides, and making sure the decision is written down where the agent will read it.</p>
+
+        <p><em>Frank Goortani is CTO of FasterOutcomes (full-time since June 2025), an AI engineering leader focused on production LLM systems, and author of the forthcoming The Centaur CTO (<a href="https://architect.solutions/book/">architect.solutions/book</a>).</em></p>
+
+        <p><a href="/writing/">Back to writing</a></p>
+      </div>
+    </section>
+  </main>
+  <script defer src="../assets/js/main.js"></script>
+</body>
+</html>

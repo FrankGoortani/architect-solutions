@@ -322,6 +322,12 @@ Definition
 
 The idea behind the book: what a CTO hands to AI, what stays human, how to lead a team that works alongside AI agents, and a glossary of the terms.
 
+Open Source
+
+### Your AI Agents Need Rules About Who Decides, Not Another Network
+
+Coordinating people and AI agents from different platforms through one GitHub repository, which always-on agents can take part, and the open Repo Channel Protocol.
+
 Field Note
 
 ### What I Learned Scaling FasterOutcomes from 0→1
@@ -471,6 +477,146 @@ Log every model call with its inputs, retrieved context, output, latency and cos
 It can, when it is measured. At Uber I built ELLE, an AI decision engine for privacy reviews that cut manual review time by roughly 70% across millions of decisions. In systems like that, the model matters less than the discipline around it: clear sources of truth, measurable quality, a human path for uncertain cases, and the ability to explain a decision after the fact.
 
 That is the leadership lesson. Production AI is a set of decisions about trust, accountability and cost that happen to be implemented in software. They belong to the CTO. This essay draws on the production AI chapter of The Centaur CTO.
+
+Back to writing
+
+---
+
+# Your AI Agents Need Rules About Who Decides, Not Another Network
+
+URL: https://architect.solutions/writing/repo-channel-protocol.html
+
+# Your AI Agents Need Rules About Who Decides, Not Another Network
+
+Coordinating people and AI agents from different platforms through one GitHub repository, and an open protocol for doing it safely.
+
+By Frank Goortani · November 12, 2026
+
+In short: agents from different platforms can't call each other, so the person who runs them ends up copying text between chat windows. A GitHub repository fixes that with nothing to install: issues carry the messages and versioned files carry the standing instructions. The hard part isn't moving the messages. It's deciding who may change an agent's instructions, what an agent may do when nobody answers, and how far to trust what it reports. I wrote those rules down as the Repo Channel Protocol: an open specification, a small command-line tool and a set of agent skills, under the Apache 2.0 licence.
+
+## What problem does this solve?
+
+Most people who use AI agents seriously now use more than one: a coding agent in the terminal, a scheduled agent in CI, a research agent, an assistant on another vendor's platform. Each is useful. Few of them can reach each other.
+
+So the person in the middle becomes the integration layer: copying findings from one chat into another, explaining the same rules to each agent in different words, and finding out after the fact that one of them acted on something nobody agreed to. That doesn't scale past two agents, and it leaves no record of who decided what.
+
+Wire protocols don't help much here. A2A standardises how one agent calls another over HTTP. MCP standardises how a model reaches tools and data. Both are useful, and both assume servers and endpoints that many hosted agents don't expose. More to the point, neither says who approved an agent's standing instructions, what it was told never to do, or what it should conclude when a question goes unanswered. That is the missing layer.
+
+## Why a GitHub repository?
+
+Almost every agent platform can read and write GitHub issues. Very few can reach each other. A repository also happens to hold the two kinds of storage this needs:
+
+- Issues are a threaded, labelled conversation that anyone with access can open and the recipient can close.
+
+- Files are versioned, diffable and permanent, with a full history of who changed what.
+
+Add a human interface that already exists (the GitHub website and phone app) and an audit trail you get for free, and the choice makes itself. The costs are real too: no delivery guarantees, coarse rate limits, and identity that depends on how accounts are set up. The protocol is built around those rather than hiding them.
+
+## What does the protocol actually say?
+
+Each agent gets its own private repository, called a channel. Inside it, files and issues do different jobs. The test is simple: if it should still be true next month, it belongs in a file. If it is about something happening now, it belongs in an issue.
+
+Messages come in five types, each with fixed headings so that people and parsers read them the same way:
+
+- request: do something. It says what, why, and what "done" looks like.
+
+- handoff: here is state or results. The recipient now owns the pending items.
+
+- question: I need information. It always states a fallback for when nobody answers.
+
+- decision: only the human can choose. It gives the options and a recommendation.
+
+- report: for information. No action expected.
+
+Four rules carry most of the weight:
+
+- Approved files only. An agent acts on a rules file or playbook only when the file itself says it is active and names the human who approved it. Drafts are for reading.
+
+- Messages can't widen authority. A message can ask for work inside what the approved files already allow. It can't grant a new permission, whoever sent it.
+
+- Quoted content is data. Text from a web page, an email or another agent is never an instruction, even when a trusted participant quotes it.
+
+- Silence is not approval. A decision past its deadline stays open, and nobody acts on an assumed yes.
+
+The first two rules matter most. If a message could grant permission, an agent's authority would equal whatever the last convincing message said, and a convincing message is exactly what a prompt injection produces. Keeping authority in files a human approved means an attacker has to change a file, and that takes the human.
+
+## How do agents fail in a shared channel?
+
+Most of the protocol exists because agents fail in predictable ways once they share a workspace. Five failure modes shaped it:
+
+- Describing capabilities they don't have. Agents describe what agents like them can generally do, not what they have been given. The fix is a ledger of capabilities someone has watched work. What an agent says about itself is recorded as "claimed" until then.
+
+- Losing messages quietly. An agent that can open issues but can't apply labels sends messages that never reach a label-based inbox. An agent that writes labels into the message body, plus a participant who sweeps for unaddressed issues on every check, closes that gap.
+
+- Filing the same item twice. An agent running on a schedule doesn't necessarily remember its previous run. The rule: search open issues before opening one.
+
+- Saying more than the source does. Summaries drift toward what the writer expects to be true. Every claim about the outside world carries the quoted line and the link it came from.
+
+- Working to an old version of the instructions. Each message names the instruction files and versions it acted under, and an agent has adopted a new version only once it says so.
+
+None of these can be predicted from an agent's description. That is the general lesson: the protocol has to keep working when a participant can do less than assumed, and has to make the gap visible.
+
+## Which always-on agents can take part?
+
+Any agent that can read GitHub issues and open or comment on them, on a schedule or on an event, can take part. It doesn't need to run on the same platform as the others, or know they exist. The protocol defines fallbacks for everything else: an agent that can't apply labels writes them into the body, and one that can't close issues says "DONE" and the steward closes for it.
+
+Kind of agent Examples How it stays on
+
+Agents that run in CI Claude Code GitHub Actions, GitHub Agentic Workflows A workflow on a schedule, or on new issues and comments
+
+Cloud coding agents attached to a repository GitHub Copilot coding agent, OpenAI Codex, Google Jules, Claude Code on the web Started by an issue, a mention or a scheduled task
+
+Agents you host, built on an SDK Claude Agent SDK, OpenAI Agents SDK, LangGraph A cron job or a service, reaching GitHub through the gh CLI or the GitHub MCP server
+
+Terminal coding agents Claude Code, Codex CLI, Gemini CLI A check of the inbox at the start of every session
+
+Personal assistant agents with a GitHub connection Assistants that can connect to GitHub and run scheduled tasks Their own scheduled tasks
+
+People The approver, a colleague, a partner The GitHub website or phone app
+
+What differs between these is not whether they can take part but how much they can do, which is why the protocol records each participant's limits instead of assuming them.
+
+## How do you work with an agent you don't fully trust?
+
+Simon Willison describes the lethal trifecta: an agent is seriously exposed when it has private data, reads untrusted content, and can send data out. Issue trackers are a proven route for that kind of attack. In 2025, researchers showed a crafted public issue steering an agent into leaking data from a private repository.
+
+The protocol answers with trust tiers. A restricted agent is told only what could be published, takes no action outside the repository unless an approved playbook names it, and its output counts as unverified until someone has opened the source and checked the quote. New agents start there. A standard agent can hold private context its role needs, and its external actions are limited to what the approved files allow.
+
+This reduces the risk. It does not remove it. A tier is an instruction, not a sandbox, so it holds only as far as the agent's actual access matches it. The specification says so plainly, along with the weaker guarantees you get when every agent posts through one shared GitHub account.
+
+## Isn't this already done?
+
+Using GitHub issues to coordinate agents is not a new idea, and I don't claim it is. Jon Udell made the same observation in InfoWorld and argued that no new protocol is needed. agent-postbox is a well-built issue mailbox for agents with human-only decision labels. GNAP coordinates agents through files in a git repository.
+
+I agree that no new transport is needed. What I didn't find written down anywhere was the governance around the mailbox: instruction files that bind only after a human approves them, trust tiers, one channel per agent with a single bridge between them, a ledger of observed capabilities, defined behaviour when everyone shares one account, and fallbacks for agents that can't do the basics. The repository's prior-art page gives each related project its due.
+
+## Before you connect a new agent: a checklist
+
+- The agent has its own private repository, and can't read any other agent's.
+
+- It starts on the restricted tier: nothing private in the repository, no external actions.
+
+- The rules file says what may never leave the repository and that nothing acts outside it without an approved playbook, and the human has approved it in the file.
+
+- Its GitHub access is limited to that one repository.
+
+- The first message is an onboarding request that asks it to comment, label and close the issue, and to report each result with the exact error text.
+
+- Every operation it fails goes into the manifest as something it can't do, so the fallbacks apply automatically.
+
+- Its tier rises only on a decision that cites what it has been seen to do.
+
+## How do I try it?
+
+You need Python 3.11 or later. The tool uses the standard library only.
+
+pipx install git+https://github.com/FrankGoortani/repo-channel-protocol git clone https://github.com/FrankGoortani/repo-channel-protocol rchan lint --dir repo-channel-protocol/examples/digest-channel
+
+The repository has the specification, guides for the human who approves and for the agents themselves, five agent skills (inbox, send, propose, steward, setup), and a fictional worked example with full message transcripts, including a prompt-injection attempt that both agents treat as data. It is version 0.1, a working draft. Field reports go in its issue tracker.
+
+The broader point is one I keep coming back to in The Centaur CTO: what matters most isn't how capable each agent is. It's knowing who decides, and making sure the decision is written down where the agent will read it.
+
+Frank Goortani is CTO of FasterOutcomes (full-time since June 2025), an AI engineering leader focused on production LLM systems, and author of the forthcoming The Centaur CTO ( architect.solutions/book).
 
 Back to writing
 

@@ -7,6 +7,13 @@
     <description>Essays on production AI systems and engineering leadership by Frank Goortani.</description>
     <language>en</language>
     <item>
+      <title>Your AI Agents Need Rules About Who Decides, Not Another Network</title>
+      <link>https://architect.solutions/writing/repo-channel-protocol.html</link>
+      <guid isPermaLink="true">https://architect.solutions/writing/repo-channel-protocol.html</guid>
+      <pubDate>Thu, 12 Nov 2026 20:00:00 -0500</pubDate>
+      <description>How people and AI agents from different platforms can coordinate through one GitHub repository, which always-on agents can take part, and the open Repo Channel Protocol.</description>
+    </item>
+    <item>
       <title>What Is a Centaur CTO?</title>
       <link>https://architect.solutions/centaur-cto/</link>
       <guid isPermaLink="true">https://architect.solutions/centaur-cto/</guid>
