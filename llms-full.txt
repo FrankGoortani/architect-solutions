@@ -68,7 +68,7 @@ Built an AI platform for legal and healthcare workflows from 0→1 in 12 weeks a
 
 ### BayRockLabs AI Practice
 
-Led GenAI consulting practice helping multiple enterprise clients ship production AI systems.
+GenAI lead architecting AI automation programs for enterprise clients.
 
 - GenAI consulting lead
 
@@ -88,7 +88,7 @@ The best CTOs will not be the ones who automate the most work. They will be the 
 
 More about the book · What is a Centaur CTO?
 
-Email me for launch updates
+Follow on LinkedIn for updates
 
 ## Insights on AI Leadership
 
@@ -296,7 +296,7 @@ The best CTOs will not be the ones who automate the most work. They will be the 
 
 Start with the idea itself: What is a Centaur CTO?, with a glossary of the book's terms.
 
-Email me for launch updates
+Follow on LinkedIn for updates
 
 ## About the author
 
@@ -356,7 +356,7 @@ Article in progress
 
 Want to be notified when new articles are published?
 
-Subscribe for Updates
+Follow on LinkedIn
 
 ---
 

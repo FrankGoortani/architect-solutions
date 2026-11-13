@@ -27,7 +27,7 @@ Use `CLAUDE.md` for deeper background, but this file is the Codex-facing instruc
 
 - The site should feel professional, technical, and focused on agentic coding, MCP, and developer enablement.
 - Use existing colors, typography, spacing, and component patterns in `assets/css/main.css`.
-- Do not introduce decorative-heavy or marketing-template sections that clash with the current compact consulting-site structure.
+- Do not introduce decorative-heavy or marketing-template sections that clash with the current compact personal-brand and book site structure (this is not a consulting site).
 
 ## Verification
 
