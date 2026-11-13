@@ -1019,3 +1019,23 @@ section.book-section a:not(.btn) {
 .prose code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+
+/* Video at the top of an essay */
+.prose .essay-video {
+  margin: 0 0 var(--space-8);
+}
+
+.prose .essay-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+
+.prose .essay-video figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.875em;
+  color: var(--color-text-secondary);
+}

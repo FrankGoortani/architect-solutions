@@ -492,6 +492,10 @@ Coordinating people and AI agents from different platforms through one GitHub re
 
 By Frank Goortani · November 12, 2026
 
+Watch the video (MP4, 5 MB)
+
+The protocol in 90 seconds. Captions are burned in. The narration is AI-generated (Google Gemini text to speech); the visuals were built in code with HyperFrames.
+
 In short: agents from different platforms can't call each other, so the person who runs them ends up copying text between chat windows. A GitHub repository fixes that with nothing to install: issues carry the messages and versioned files carry the standing instructions. The hard part isn't moving the messages. It's deciding who may change an agent's instructions, what an agent may do when nobody answers, and how far to trust what it reports. I wrote those rules down as the Repo Channel Protocol: an open specification, a small command-line tool and a set of agent skills, under the Apache 2.0 licence.
 
 ## What problem does this solve?

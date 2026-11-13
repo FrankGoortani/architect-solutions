@@ -25,7 +25,7 @@
     "url": "https://architect.solutions/writing/repo-channel-protocol.html",
     "mainEntityOfPage": "https://architect.solutions/writing/repo-channel-protocol.html",
     "datePublished": "2026-11-12T20:00:00-05:00",
-    "dateModified": "2026-11-12T20:00:00-05:00",
+    "dateModified": "2026-11-12T23:00:00-05:00",
     "author": {
       "@type": "Person",
       "@id": "https://goortani.com/#person",
@@ -45,7 +45,17 @@
       "license": "https://www.apache.org/licenses/LICENSE-2.0"
     },
     "image": "https://architect.solutions/assets/og/writing--repo-channel-protocol.png",
-    "inLanguage": "en"
+    "inLanguage": "en",
+    "video": {
+      "@type": "VideoObject",
+      "name": "The Repo Channel Protocol, explained in 90 seconds",
+      "description": "Why AI agents from different platforms need written rules about who decides, and how a GitHub repository carries them: issues as messages, approved files as instructions, four rules and trust tiers.",
+      "thumbnailUrl": "https://architect.solutions/assets/video/repo-channel-protocol-poster.jpg",
+      "contentUrl": "https://architect.solutions/assets/video/repo-channel-protocol.mp4",
+      "uploadDate": "2026-11-12T23:00:00-05:00",
+      "duration": "PT1M33S",
+      "author": { "@id": "https://goortani.com/#person" }
+    }
   }
   </script>
 
@@ -75,6 +85,15 @@
     </section>
     <section>
       <div class="container prose">
+        <figure class="essay-video">
+          <video controls preload="metadata" playsinline width="1920" height="1080"
+                 poster="/assets/video/repo-channel-protocol-poster.jpg"
+                 aria-label="The Repo Channel Protocol, explained in 90 seconds">
+            <source src="/assets/video/repo-channel-protocol.mp4" type="video/mp4">
+            <a href="/assets/video/repo-channel-protocol.mp4">Watch the video (MP4, 5 MB)</a>
+          </video>
+          <figcaption>The protocol in 90 seconds. Captions are burned in. The narration is AI-generated (Google Gemini text to speech); the visuals were built in code with HyperFrames.</figcaption>
+        </figure>
         <p><strong>In short:</strong> agents from different platforms can't call each other, so the person who runs them ends up copying text between chat windows. A GitHub repository fixes that with nothing to install: issues carry the messages and versioned files carry the standing instructions. The hard part isn't moving the messages. It's deciding who may change an agent's instructions, what an agent may do when nobody answers, and how far to trust what it reports. I wrote those rules down as the <a href="https://github.com/FrankGoortani/repo-channel-protocol">Repo Channel Protocol</a>: an open specification, a small command-line tool and a set of agent skills, under the Apache 2.0 licence.</p>
 
         <h2>What problem does this solve?</h2>
